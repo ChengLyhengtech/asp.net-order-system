@@ -1,0 +1,191 @@
+[
+  {
+    "ContainingType": "aps.net_order_system.Controllers.CategoriesController",
+    "Method": "GetAll",
+    "RelativePath": "api/Categories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "aps.net_order_system.Controllers.CategoriesController",
+    "Method": "Create",
+    "RelativePath": "api/Categories",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "aps.net_order_system.DTOs.CategoriesDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "aps.net_order_system.Controllers.CategoriesController",
+    "Method": "Update",
+    "RelativePath": "api/Categories/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "aps.net_order_system.DTOs.CategoriesDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "aps.net_order_system.Controllers.CategoriesController",
+    "Method": "Delete",
+    "RelativePath": "api/Categories/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "aps.net_order_system.Controllers.ProductController",
+    "Method": "GetAll",
+    "RelativePath": "api/Product",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "aps.net_order_system.Controllers.ProductController",
+    "Method": "Create",
+    "RelativePath": "api/Product",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "aps.net_order_system.DTOs.ProductDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "aps.net_order_system.Controllers.ProductController",
+    "Method": "Update",
+    "RelativePath": "api/Product/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "command",
+        "Type": "aps.net_order_system.Commands.Update.UpdateProductCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "aps.net_order_system.Controllers.ProductController",
+    "Method": "Delete",
+    "RelativePath": "api/Product/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "aps.net_order_system.Controllers.UserController",
+    "Method": "GetAll",
+    "RelativePath": "api/User",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "aps.net_order_system.Controllers.UserController",
+    "Method": "Create",
+    "RelativePath": "api/User",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "aps.net_order_system.DTOs.UserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "aps.net_order_system.Controllers.UserController",
+    "Method": "Update",
+    "RelativePath": "api/User/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "command",
+        "Type": "aps.net_order_system.Commands.Update.UpdateUserCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "aps.net_order_system.Controllers.UserController",
+    "Method": "Delete",
+    "RelativePath": "api/User/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

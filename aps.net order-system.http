@@ -1,0 +1,6 @@
+@aps.net_order_system_HostAddress = http://localhost:5167
+
+GET {{aps.net_order_system_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
