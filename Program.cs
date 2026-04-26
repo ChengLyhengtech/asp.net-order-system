@@ -7,6 +7,18 @@ using aps.net_order_system.Commands.Update;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// --- ADD CORS POLICY HERE ---
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend",
+        policy =>
+        {
+            policy.WithOrigins("http://127.0.0.1:5501") // Your Live Server address
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
+
 // 1. Database Configuration (Example for SQL Server)
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -33,6 +45,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.UseCors("AllowFrontend");
 
 // 4. Middleware Pipeline
 if (app.Environment.IsDevelopment())

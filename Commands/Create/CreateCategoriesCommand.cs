@@ -10,7 +10,7 @@ namespace aps.net_order_system.Commands.Create
         
         public CreateCategoriesCommand(AppDbContext context) => _context = context;
 
-        public async Task<CategoriesModel> Handle(CategoriesDto command)
+        public async Task<CategoriesModel> Handle(CategoryCreateDto command)
         {
             var categories = new CategoriesModel
             {

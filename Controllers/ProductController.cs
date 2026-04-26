@@ -38,7 +38,7 @@ namespace aps.net_order_system.Controllers
 
         // POST: api/Product
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] ProductDto command)
+        public async Task<IActionResult> Create([FromBody] ProductCreateDto command)
         {
             try
             {
@@ -56,21 +56,18 @@ namespace aps.net_order_system.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] UpdateProductCommand command)
         {
-            if (id != command.Id)
-            {
-                return BadRequest("Product ID mismatch between URL and body.");
-            }
+            command.Id = id;
 
             try
             {
-                var success = await _updateHandler.HandleAsync(command);
-                if (!success) return NotFound($"Product with ID {id} not found.");
-
-                return NoContent(); // 204 Success
+                var result = await _updateHandler.HandleAsync(command);
+                if (result == null)
+                    return NotFound();
+                return Ok(result); // ✅ return updated product with id
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(new { message = ex.Message });
             }
         }
 

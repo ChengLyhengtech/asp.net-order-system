@@ -8,11 +8,12 @@ namespace aps.net_order_system.Commands.Create
     {
         private readonly AppDbContext _context;
         public CreateProductCommand(AppDbContext context) => _context = context; 
-        public async Task<ProductModel> Handle(ProductDto command)
+        public async Task<ProductModel> Handle(ProductCreateDto command)
         {
             var product = new ProductModel
             {
                 Name = command.Name,
+                ProductImg = command.ProductImg,
                 Description = command.Description,
                 Price = command.Price,
                 IsAvailable = command.IsAvailable,

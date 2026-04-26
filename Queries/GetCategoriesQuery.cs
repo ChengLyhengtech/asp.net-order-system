@@ -28,6 +28,7 @@ namespace aps.net_order_system.Queries
                     Products = c.Products.Select(p => new ProductDto
                     {
                         Name = p.Name,
+                        ProductImg = p.ProductImg,
                         Description = p.Description,
                         Price = p.Price,
                         IsAvailable = p.IsAvailable,

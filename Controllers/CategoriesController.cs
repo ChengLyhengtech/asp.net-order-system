@@ -37,7 +37,7 @@ namespace aps.net_order_system.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CategoriesDto command) // 3. Corrected to [FromBody]
+        public async Task<IActionResult> Create([FromBody] CategoryCreateDto command) // 3. Corrected to [FromBody]
         {
             var result = await _createHandler.Handle(command);
             return Ok(result);
