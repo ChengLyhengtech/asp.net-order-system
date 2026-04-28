@@ -2,6 +2,8 @@ using aps.net_order_system.Commands.Create;
 using aps.net_order_system.Commands.Delete;
 using aps.net_order_system.Commands.Update;
 using aps.net_order_system.Data;
+using aps.net_order_system.Queries;
+using Microsoft.EntityFrameworkCore;
 using aps.net_order_system.Models;
 using aps.net_order_system.Queries;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -18,7 +20,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend",
         policy =>
         {
-            policy.WithOrigins("http://127.0.0.1:5501") // Your Live Server address
+            policy.AllowAnyOrigin() // Your Live Server address
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
@@ -79,6 +81,15 @@ builder.Services.AddScoped<GetProductHandler>();
 builder.Services.AddScoped<CreateProductCommand>();
 builder.Services.AddScoped<UpdateProductHandler>();
 builder.Services.AddScoped<DeleteProductHandler>();
+builder.Services.AddScoped<GetTopProductHandler>();
+
+// --- Add these lines ---
+builder.Services.AddScoped<GetAllOrdersQueryHandler>();
+builder.Services.AddScoped<GetOrderQueryHandler>();
+builder.Services.AddScoped<CreateOrderCommandHandler>();
+builder.Services.AddScoped<UpdateOrderStatusCommandHandler>();
+builder.Services.AddScoped<DeleteOrderCommandHandler>();
+// -----------------------
 
 // 3. Add Controllers and Swagger
 builder.Services.AddControllers();

@@ -7,6 +7,7 @@ namespace aps.net_order_system.Queries
 {
     public class GetProductQuery
     {
+        public int Limit { get; set; } = 5;
     }
     public class GetProductHandler
     {

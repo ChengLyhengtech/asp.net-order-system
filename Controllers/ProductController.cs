@@ -15,17 +15,20 @@ namespace aps.net_order_system.Controllers
         private readonly CreateProductCommand _createHandler;
         private readonly UpdateProductHandler _updateHandler;
         private readonly DeleteProductHandler _deleteHandler;
+        private readonly GetTopProductHandler _gettophandler;
 
         public ProductController(
             GetProductHandler getHandler,
             CreateProductCommand createHandler,
             UpdateProductHandler updateHandler,
-            DeleteProductHandler deleteHandler)
+            DeleteProductHandler deleteHandler,
+            GetTopProductHandler getTopHandler)
         {
             _getHandler = getHandler;
             _createHandler = createHandler;
             _updateHandler = updateHandler;
             _deleteHandler = deleteHandler;
+            _gettophandler = getTopHandler;
         }
 
         // GET: api/Product
@@ -83,6 +86,20 @@ namespace aps.net_order_system.Controllers
             }
 
             return NoContent();
+        }
+        [HttpGet("top")]
+        public async Task<IActionResult> TopProduct([FromQuery] int limit = 5)
+        {
+            try
+            {
+                var query = new GetTopProductQuery { Limit = limit };
+                var result = await _gettophandler.Handle(query); // Use the field here
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
     }
 }
