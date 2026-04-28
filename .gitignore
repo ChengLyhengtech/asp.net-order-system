@@ -1,0 +1,13 @@
+# User-specific files
+.vs/
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+bin/
+obj/
+
+# User-specific project settings
+*.user
+*.userosscache
+*.sln.docstates
