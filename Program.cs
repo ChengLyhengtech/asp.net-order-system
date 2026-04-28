@@ -2,8 +2,7 @@ using aps.net_order_system.Commands.Create;
 using aps.net_order_system.Commands.Delete;
 using aps.net_order_system.Commands.Update;
 using aps.net_order_system.Data;
-using aps.net_order_system.Queries;
-using Microsoft.EntityFrameworkCore;
+
 using aps.net_order_system.Models;
 using aps.net_order_system.Queries;
 using Microsoft.AspNetCore.Authentication.JwtBearer;

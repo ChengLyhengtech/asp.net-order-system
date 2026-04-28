@@ -7,6 +7,10 @@
 bin/
 obj/
 
+# Ignore only development secrets
+appsettings.json
+appsettings.Development.json
+
 # User-specific project settings
 *.user
 *.userosscache
