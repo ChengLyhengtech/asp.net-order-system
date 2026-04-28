@@ -140,4 +140,4 @@ D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\ref
 D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\aps.net order-system.sourcelink.json
 D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\BCrypt.Net-Next.dll
 D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\swae.build.ex.cache
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
