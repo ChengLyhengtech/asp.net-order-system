@@ -5,4 +5,23 @@
 [Oo]bj/
 .vs/
 .vscode/
+*.user# User-specific files
+.vs/
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+bin/
+obj/
+
+# Ignore only development secrets
+appsettings.json
+appsettings.Development.json
+
+# User-specific project settings
 *.user
+*.userosscache
+*.sln.docstates
+
+# Ignore all Migrations folders
+**/Migrations/
