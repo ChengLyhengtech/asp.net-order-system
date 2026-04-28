@@ -807,21 +807,32 @@
         "additionalProperties": false
       },
       "UserDto": {
+        "required": [
+          "email",
+          "fullName",
+          "password",
+          "userName"
+        ],
         "type": "object",
         "properties": {
-          "username": {
-            "type": "string",
-            "nullable": true
+          "fullName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "userName": {
+            "minLength": 1,
+            "type": "string"
           },
           "email": {
+            "minLength": 1,
             "type": "string",
-            "nullable": true
-          },
-          "phoneNumber": {
-            "type": "string",
-            "nullable": true
+            "format": "email"
           },
           "password": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "phoneNumber": {
             "type": "string",
             "nullable": true
           }
