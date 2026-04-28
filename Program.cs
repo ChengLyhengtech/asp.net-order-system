@@ -1,9 +1,14 @@
-using aps.net_order_system.Queries;
-using aps.net_order_system.Data;
-using Microsoft.EntityFrameworkCore;
 using aps.net_order_system.Commands.Create;
 using aps.net_order_system.Commands.Delete;
 using aps.net_order_system.Commands.Update;
+using aps.net_order_system.Data;
+using aps.net_order_system.Models;
+using aps.net_order_system.Queries;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +27,42 @@ builder.Services.AddCors(options =>
 // 1. Database Configuration (Example for SQL Server)
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+// ASP.NET Core Identity Setup
+builder.Services.AddIdentity<UserModel, IdentityRole>(options =>
+{
+    options.Password.RequireDigit = false;
+    options.Password.RequiredLength = 6;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false;
+    options.User.RequireUniqueEmail = true;
+})
+.AddEntityFrameworkStores<AppDbContext>()
+.AddDefaultTokenProviders();
+
+
+// JWT Authentication Setup
+var jwtKey = builder.Configuration["Jwt:Key"] ?? "YourSuperSecretKey123_DoNotUseInProduction!";
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Jwt:Issuer"] ?? "yourdomain.com",
+        ValidAudience = builder.Configuration["Jwt:Audience"] ?? "yourdomain.com",
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
+    };
+});
 
 // 2. Register All Handlers (CQRS)
 builder.Services.AddScoped<GetCategoriesHandler>();
@@ -46,6 +87,8 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+
+
 app.UseCors("AllowFrontend");
 
 // 4. Middleware Pipeline
@@ -56,6 +99,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseAuthentication(); // <--- ADD THIS LINE HERE
 app.UseAuthorization();
 app.MapControllers();
 
