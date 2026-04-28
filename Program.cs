@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using aps.net_order_system.Commands;
 
 var builder = WebApplication.CreateBuilder(args);
 
