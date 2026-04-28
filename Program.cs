@@ -11,6 +11,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using aps.net_order_system.Commands;
+
+using aps.net_order_system.Interface;
+using aps.net_order_system.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -66,6 +70,10 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+// QRCode 
+builder.Services.AddDataProtection();
+builder.Services.AddScoped<ITableQrService, TableQrService>();
+
 // 2. Register All Handlers (CQRS)
 builder.Services.AddScoped<GetCategoriesHandler>();
 builder.Services.AddScoped<CreateCategoriesCommand>();
@@ -98,7 +106,7 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-
+    
 
 app.UseCors("AllowFrontend");
 
