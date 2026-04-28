@@ -1,20 +1,8 @@
-# User-specific files
+﻿# លុបចោល៖ **/Migrations/ (ដាច់ខាតកុំ ignore វា)
+
+# បន្ថែមការកំណត់ស្តង់ដារសម្រាប់ .NET
+[Bb]in/
+[Oo]bj/
 .vs/
-
-# Build results
-[Dd]ebug/
-[Rr]elease/
-bin/
-obj/
-
-# Ignore only development secrets
-appsettings.json
-appsettings.Development.json
-
-# User-specific project settings
+.vscode/
 *.user
-*.userosscache
-*.sln.docstates
-
-# Ignore all Migrations folders
-**/Migrations/
