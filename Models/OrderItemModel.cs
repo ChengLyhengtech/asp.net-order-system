@@ -13,7 +13,7 @@ namespace aps.net_order_system.Models
         public decimal Subtotal { get; set; }
 
         // Navigation Properties
-        public virtual OrderModel Order { get; set; }
-        public virtual ProductModel Product { get; set; }
+        public virtual OrderModel? Order { get; set; }
+        public virtual ProductModel? Product { get; set; }
     }
 }

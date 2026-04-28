@@ -35,10 +35,16 @@ namespace aps.net_order_system.Queries
                         ProductId = oi.ProductId,
                         Quantity = oi.Quantity,
                         Subtotal = oi.Subtotal,
+                        SpecialInstructions = oi.SpecialInstructions, // 👈 Added this
                         Product = new ProductDto
                         {
                             Id = oi.Product.Id,
-                            Name = oi.Product.Name
+                            Name = oi.Product.Name,
+                            ProductImg = oi.Product.ProductImg,    // 👈 Map the image
+                            Description = oi.Product.Description, // 👈 Map description
+                            Price = oi.Product.Price,              // 👈 Map price
+                            IsAvailable = oi.Product.IsAvailable, // 👈 Map availability
+                            CategoryId = oi.Product.CategoryId     // 👈 Map category
                         }
                     }).ToList()
                 })

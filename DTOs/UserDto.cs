@@ -1,4 +1,5 @@
-﻿namespace aps.net_order_system.DTOs
+﻿
+namespace aps.net_order_system.DTOs
 {
     public class UserDto
     {

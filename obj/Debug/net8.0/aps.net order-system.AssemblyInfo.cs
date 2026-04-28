@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("aps.net order-system")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9fef2eb1612416e6bf132a51f243b0dc6432d34f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86f386caa0bcf79282cf8e9e39cd4e9b45db337f")]
 [assembly: System.Reflection.AssemblyProductAttribute("aps.net order-system")]
 [assembly: System.Reflection.AssemblyTitleAttribute("aps.net order-system")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

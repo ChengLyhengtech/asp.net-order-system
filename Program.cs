@@ -1,9 +1,10 @@
-using aps.net_order_system.Queries;
-using aps.net_order_system.Data;
-using Microsoft.EntityFrameworkCore;
+using aps.net_order_system.Commands;
 using aps.net_order_system.Commands.Create;
 using aps.net_order_system.Commands.Delete;
 using aps.net_order_system.Commands.Update;
+using aps.net_order_system.Data;
+using aps.net_order_system.Queries;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,6 +40,14 @@ builder.Services.AddScoped<CreateProductCommand>();
 builder.Services.AddScoped<UpdateProductHandler>();
 builder.Services.AddScoped<DeleteProductHandler>();
 builder.Services.AddScoped<GetTopProductHandler>();
+
+// --- Add these lines ---
+builder.Services.AddScoped<GetAllOrdersQueryHandler>();
+builder.Services.AddScoped<GetOrderQueryHandler>();
+builder.Services.AddScoped<CreateOrderCommandHandler>();
+builder.Services.AddScoped<UpdateOrderStatusCommandHandler>();
+builder.Services.AddScoped<DeleteOrderCommandHandler>();
+// -----------------------
 
 // 3. Add Controllers and Swagger
 builder.Services.AddControllers();

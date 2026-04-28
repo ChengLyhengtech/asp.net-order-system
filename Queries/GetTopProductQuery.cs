@@ -23,25 +23,28 @@ namespace aps.net_order_system.Queries
             var sql = @"
                 SELECT TOP ({0}) p.*
                 FROM Products p
-                INNER JOIN (
+                LEFT JOIN (
                     SELECT ProductId, SUM(Quantity) as TotalSold
                     FROM OrderItems
                     GROUP BY ProductId
                 ) oi ON p.Id = oi.ProductId
-                ORDER BY oi.TotalSold DESC";
-            // Executing via EF Core but using raw SQL for speed
-            var topProducts = await _context.Products
+                ORDER BY ISNULL(oi.TotalSold, 0) DESC";
+
+            // Execute the query and map to DTO
+            return await _context.Products
                 .FromSqlRaw(sql, query.Limit)
-                .AsNoTracking() // Improves speed by disabling change tracking
+                .AsNoTracking()
                 .Select(p => new ProductDto
                 {
                     Id = p.Id,
                     Name = p.Name,
-                    Price = p.Price
-                    // Map other fields as necessary
+                    ProductImg = p.ProductImg,
+                    Description = p.Description,
+                    Price = p.Price,
+                    IsAvailable = p.IsAvailable,
+                    CategoryId = p.CategoryId
                 })
                 .ToListAsync();
-            return topProducts;
         }
     }
 }

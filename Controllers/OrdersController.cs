@@ -10,70 +10,58 @@ namespace aps.net_order_system.Controllers
     [Route("api/[controller]")]
     public class OrdersController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        // Inject handlers directly
+        private readonly GetAllOrdersQueryHandler _getAllHandler;
+        private readonly GetOrderQueryHandler _getByIdHandler;
+        private readonly CreateOrderCommandHandler _createHandler;
+        private readonly UpdateOrderStatusCommandHandler _updateHandler;
+        private readonly DeleteOrderCommandHandler _deleteHandler;
 
-        public OrdersController(AppDbContext context)
+        public OrdersController(
+            GetAllOrdersQueryHandler getAllHandler,
+            GetOrderQueryHandler getByIdHandler,
+            CreateOrderCommandHandler createHandler,
+            UpdateOrderStatusCommandHandler updateHandler,
+            DeleteOrderCommandHandler deleteHandler)
         {
-            _context = context;
+            _getAllHandler = getAllHandler;
+            _getByIdHandler = getByIdHandler;
+            _createHandler = createHandler;
+            _updateHandler = updateHandler;
+            _deleteHandler = deleteHandler;
         }
 
-        // GET: api/Orders
         [HttpGet]
         public async Task<ActionResult<IEnumerable<OrderDto>>> GetAll()
-        {
-            var handler = new GetAllOrdersQueryHandler(_context);
-            var query = new GetAllOrdersQuery();
-            var result = await handler.Handle(query);
-            return Ok(result);
-        }
+            => Ok(await _getAllHandler.Handle(new GetAllOrdersQuery()));
 
-        // GET: api/Orders/5
         [HttpGet("{id}")]
         public async Task<ActionResult<OrderDto>> GetById(int id)
         {
-            var handler = new GetOrderQueryHandler(_context);
-            var query = new GetOrderQuery(id);
-            var result = await handler.Handle(query);
-
-            if (result == null) return NotFound();
-            return Ok(result);
+            var result = await _getByIdHandler.Handle(new GetOrderQuery(id));
+            return result == null ? NotFound() : Ok(result);
         }
 
-        // POST: api/Orders
         [HttpPost]
         public async Task<ActionResult<int>> Create([FromBody] CreateOrderCommand command)
         {
-            var handler = new CreateOrderCommandHandler(_context);
-            var newOrderId = await handler.Handle(command);
-
-            // Returns 201 Created and points to the GetById route
+            var newOrderId = await _createHandler.Handle(command);
             return CreatedAtAction(nameof(GetById), new { id = newOrderId }, new { id = newOrderId });
         }
 
-        // PUT: api/Orders/5
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateStatus(int id, [FromBody] UpdateOrderStatusCommand command)
         {
-            // Ensure the ID in the URL matches the ID in the command
             command.Id = id;
-
-            var handler = new UpdateOrderStatusCommandHandler(_context);
-            var success = await handler.Handle(command);
-
-            if (!success) return NotFound();
-            return NoContent();
+            var success = await _updateHandler.Handle(command);
+            return success ? NoContent() : NotFound();
         }
 
-        // DELETE: api/Orders/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var command = new DeleteOrderCommand { Id = id };
-            var handler = new DeleteOrderCommandHandler(_context);
-            var success = await handler.Handle(command);
-
-            if (!success) return NotFound();
-            return NoContent();
+            var success = await _deleteHandler.Handle(new DeleteOrderCommand { Id = id });
+            return success ? NoContent() : NotFound();
         }
     }
 }
