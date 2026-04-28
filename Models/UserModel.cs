@@ -11,7 +11,6 @@
 
         // Security
         public string PasswordHash { get; set; } = string.Empty;
-
         // Metadata
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
