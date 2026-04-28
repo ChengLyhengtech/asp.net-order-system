@@ -14,7 +14,7 @@ namespace aps.net_order_system.Commands.Create
             var newUser = new UserModel
             {
                 // Mapping the data correctly
-                Username = command.Username,
+                UserName = command.UserName,
                 Email = command.Email,
                 PhoneNumber = command.PhoneNumber, // Map Phone
                 PasswordHash = command.Password, // Map Password (ideally hashed)

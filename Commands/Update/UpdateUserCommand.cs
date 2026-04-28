@@ -19,7 +19,7 @@ namespace aps.net_order_system.Commands.Update
             var user = await _context.Users.FindAsync(command.Id);
             if (user == null) return false;
 
-            user.Username = command.Username;
+            user.UserName = command.Username;
 
             await _context.SaveChangesAsync();
             return true;
