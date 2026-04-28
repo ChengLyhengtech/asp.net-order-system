@@ -13,6 +13,8 @@ namespace aps.net_order_system.Data
         public DbSet<UserModel> Users { get; set; }
         public DbSet<CategoriesModel> Categories { get; set; }
         public DbSet<ProductModel> Products { get; set; }
+        public DbSet<OrderItemModel> OrderItems { get; set; }
+        public DbSet<OrderModel> Orders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

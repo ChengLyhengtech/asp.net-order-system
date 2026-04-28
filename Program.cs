@@ -13,7 +13,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend",
         policy =>
         {
-            policy.WithOrigins("http://127.0.0.1:5501") // Your Live Server address
+            policy.AllowAnyOrigin() // Your Live Server address
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
@@ -38,6 +38,7 @@ builder.Services.AddScoped<GetProductHandler>();
 builder.Services.AddScoped<CreateProductCommand>();
 builder.Services.AddScoped<UpdateProductHandler>();
 builder.Services.AddScoped<DeleteProductHandler>();
+builder.Services.AddScoped<GetTopProductHandler>();
 
 // 3. Add Controllers and Swagger
 builder.Services.AddControllers();
