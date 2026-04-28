@@ -12,8 +12,8 @@ using aps.net_order_system.Data;
 namespace aps.net_order_system.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260428090321_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20260428095157_InitailDB")]
+    partial class InitailDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
