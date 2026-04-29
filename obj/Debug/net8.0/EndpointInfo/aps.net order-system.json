@@ -120,26 +120,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/OrderDto"
-                  }
+                  "$ref": "#/components/schemas/OrderListResponseDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/OrderDto"
-                  }
+                  "$ref": "#/components/schemas/OrderListResponseDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/OrderDto"
-                  }
+                  "$ref": "#/components/schemas/OrderListResponseDto"
                 }
               }
             }
@@ -424,6 +415,18 @@
         }
       }
     },
+    "/api/TotalCountOrder/OrderCount": {
+      "get": {
+        "tags": [
+          "TotalCountOrder"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/User": {
       "get": {
         "tags": [
@@ -670,6 +673,23 @@
           },
           "product": {
             "$ref": "#/components/schemas/ProductDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderListResponseDto": {
+        "type": "object",
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderDto"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false

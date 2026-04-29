@@ -1,4 +1,3 @@
-
 using aps.net_order_system.Commands.Create;
 using aps.net_order_system.Commands.Delete;
 using aps.net_order_system.Commands.Update;
@@ -13,6 +12,10 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddMediatR(cfg => {
+    cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
+});
 
 // --- ADD CORS POLICY HERE ---
 builder.Services.AddCors(options =>
@@ -91,10 +94,13 @@ builder.Services.AddScoped<UpdateOrderStatusCommandHandler>();
 builder.Services.AddScoped<DeleteOrderCommandHandler>();
 // -----------------------
 
+builder.Services.AddScoped<TotalCountOrderHandler>();
+
 // 3. Add Controllers and Swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 
 var app = builder.Build();
 

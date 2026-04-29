@@ -16,24 +16,42 @@ namespace aps.net_order_system.Controllers
         private readonly CreateOrderCommandHandler _createHandler;
         private readonly UpdateOrderStatusCommandHandler _updateHandler;
         private readonly DeleteOrderCommandHandler _deleteHandler;
+        private readonly TotalCountOrderHandler _totalCountOrder;
 
         public OrdersController(
             GetAllOrdersQueryHandler getAllHandler,
             GetOrderQueryHandler getByIdHandler,
             CreateOrderCommandHandler createHandler,
             UpdateOrderStatusCommandHandler updateHandler,
-            DeleteOrderCommandHandler deleteHandler)
+            DeleteOrderCommandHandler deleteHandler,
+            TotalCountOrderHandler totalCountOrder)
         {
             _getAllHandler = getAllHandler;
             _getByIdHandler = getByIdHandler;
             _createHandler = createHandler;
             _updateHandler = updateHandler;
             _deleteHandler = deleteHandler;
+            _totalCountOrder = totalCountOrder;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<OrderDto>>> GetAll()
-            => Ok(await _getAllHandler.Handle(new GetAllOrdersQuery()));
+        public async Task<ActionResult<OrderListResponseDto>> GetAll()
+        {
+            // 1. Fetch the list of orders
+            var orders = await _getAllHandler.Handle(new GetAllOrdersQuery());
+
+            // 2. Fetch the DTO from the total count handler
+            var totalCountDto = await _totalCountOrder.Handle(new TotalCountOrderQuery(), HttpContext.RequestAborted);
+
+            // 3. Extract the 'TotalCount' integer from the DTO
+            var response = new OrderListResponseDto
+            {
+                TotalCount = totalCountDto.TotalCount, // Access the property here
+                Orders = orders
+            };
+
+            return Ok(response);
+        }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<OrderDto>> GetById(int id)
