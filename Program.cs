@@ -21,13 +21,12 @@ builder.Services.AddMediatR(cfg => {
     cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
 });
 
-// --- ADD CORS POLICY HERE ---
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend",
         policy =>
         {
-            policy.AllowAnyOrigin() // Your Live Server address
+            policy.WithOrigins("http://127.0.0.1:5501")
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
@@ -76,6 +75,9 @@ builder.Services.AddAuthentication(options =>
 // QRCode 
 builder.Services.AddDataProtection();
 builder.Services.AddScoped<ITableQrService, TableQrService>();
+//KHQR
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddHttpClient<IPaymentService, PaymentService>();
 
 // 2. Register All Handlers (CQRS)
 builder.Services.AddScoped<GetCategoriesHandler>();
