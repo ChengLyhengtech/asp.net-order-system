@@ -1,19 +1,20 @@
+using System.Text;
+using System.Text.Json;
+using aps.net_order_system.Commands;
 using aps.net_order_system.Commands.Create;
 using aps.net_order_system.Commands.Delete;
 using aps.net_order_system.Commands.Update;
 using aps.net_order_system.Data;
-using aps.net_order_system.Commands;
+//using aps.net_order_system.Commands;
+
+using aps.net_order_system.Interface;
 using aps.net_order_system.Models;
 using aps.net_order_system.Queries;
+using aps.net_order_system.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
-//using aps.net_order_system.Commands;
-
-using aps.net_order_system.Interface;
-using aps.net_order_system.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,16 +22,15 @@ builder.Services.AddMediatR(cfg => {
     cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
 });
 
-// --- ADD CORS POLICY HERE ---
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend",
-        policy =>
-        {
-            policy.AllowAnyOrigin() // Your Live Server address
-                  .AllowAnyHeader()
-                  .AllowAnyMethod();
-        });
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.AllowAnyHeader()
+              .AllowAnyMethod()
+              .SetIsOriginAllowed(origin => true) // Allow any origin
+              .AllowCredentials();
+    });
 });
 
 // 1. Database Configuration (Example for SQL Server)
@@ -73,9 +73,20 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+// In Program.cs
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        // This allows the API to match "expiryDate" to "ExpiryDate"
+        options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+    });
+
 // QRCode 
 builder.Services.AddDataProtection();
 builder.Services.AddScoped<ITableQrService, TableQrService>();
+//KHQR
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddHttpClient<IPaymentService, PaymentService>();
 
 // 2. Register All Handlers (CQRS)
 builder.Services.AddScoped<GetCategoriesHandler>();
