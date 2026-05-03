@@ -4,29 +4,29 @@ using aps.net_order_system.Models;
 
 namespace aps.net_order_system.Commands.Create
 {
-    public class CreateUserHandler
-    {
-        private readonly AppDbContext _context;
-        public CreateUserHandler(AppDbContext context) => _context = context;
+    //public class CreateUserHandler
+    //{
+    //    private readonly AppDbContext _context;
+    //    public CreateUserHandler(AppDbContext context) => _context = context;
 
-        public async Task<UserModel> Handle(UserDto command)
-        {
-            var newUser = new UserModel
-            {
-                // Mapping the data correctly
-                UserName = command.UserName,
-                Email = command.Email,
-                PhoneNumber = command.PhoneNumber, // Map Phone
-                PasswordHash = command.Password, // Map Password (ideally hashed)
+    //    public async Task<UserModel> Handle(UserDto command)
+    //    {
+    //        var newUser = new UserModel
+    //        {
+    //            // Mapping the data correctly
+    //            UserName = command.UserName,
+    //            Email = command.Email,
+    //            PhoneNumber = command.PhoneNumber, // Map Phone
+    //            PasswordHash = command.Password, // Map Password (ideally hashed)
 
-                // Automatic data
-                CreatedAt = DateTime.UtcNow
-            };
+    //            // Automatic data
+    //            CreatedAt = DateTime.UtcNow
+    //        };
 
-            _context.Users.Add(newUser);
-            await _context.SaveChangesAsync();
+    //        _context.Users.Add(newUser);
+    //        await _context.SaveChangesAsync();
 
-            return newUser;
-        }
-    }
+    //        return newUser;
+    //    }
+    //}
 }
