@@ -17,8 +17,18 @@
 
     public class CheckTransactionResponseDto
     {
-        public BakongStatus? Status { get; set; }
-        public BakongCheckDataDto? Data { get; set; }
+        // Add this to fix the error
+        public int ResponseCode { get; set; }
+
+        public string? ResponseMessage { get; set; }
+
+        public BakongData? Data { get; set; }
+    }
+    public class BakongData
+    {
+        public string? Hash { get; set; }
+        public string? Status { get; set; }
+        // Add other fields from Bakong as needed
     }
 
     public class BakongStatus

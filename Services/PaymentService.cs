@@ -59,21 +59,37 @@ public class PaymentService : IPaymentService
     // =========================
     public async Task<CheckTransactionResponseDto?> CheckPaymentStatusAsync(string md5)
     {
-        _httpClient.DefaultRequestHeaders.Authorization =
-            new AuthenticationHeaderValue("Bearer", _config["Bakong:Token"]);
+        try
+        {
+            // CLEAR existing headers first to avoid stacking headers
+            _httpClient.DefaultRequestHeaders.Authorization = null;
 
-        var response = await _httpClient.PostAsJsonAsync(
-            "https://api-bakong.nbc.gov.kh/v1/check_transaction_by_md5",
-            new { md5 }
-        );
+            var token = _config["Bakong:Token"];
+            _httpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", token);
 
-        if (!response.IsSuccessStatusCode)
+            var response = await _httpClient.PostAsJsonAsync(
+                "https://api-bakong.nbc.gov.kh/v1/check_transaction_by_md5",
+                new { md5 }
+            );
+
+            if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+            {
+                Console.WriteLine("❌ ERROR: Bakong Token is Invalid or Expired (401).");
+                return null;
+            }
+
+            if (!response.IsSuccessStatusCode) return null;
+
+            var options = new System.Text.Json.JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            return await response.Content.ReadFromJsonAsync<CheckTransactionResponseDto>(options);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Connection Error: {ex.Message}");
             return null;
-
-        return await response.Content.ReadFromJsonAsync<CheckTransactionResponseDto>();
-    }
-
-    // =========================
+        }
+    }    // =========================
     // DEEPLINK
     // =========================
     public async Task<object> GenerateDeeplinkAsync(string qrString)
@@ -88,6 +104,7 @@ public class PaymentService : IPaymentService
                 appDeepLinkCallback = "https://bakong.nbc.gov.kh/"
             }
         };
+
 
         _httpClient.DefaultRequestHeaders.Authorization =
             new AuthenticationHeaderValue("Bearer", _config["Bakong:Token"]);

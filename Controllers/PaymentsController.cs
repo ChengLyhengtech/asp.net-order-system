@@ -13,13 +13,11 @@ namespace aps.net_order_system.Controllers
     {
         private readonly IPaymentService _paymentService;
         private readonly AppDbContext _db;
-
         public PaymentsController(IPaymentService paymentService, AppDbContext db)
         {
             _paymentService = paymentService;
             _db = db;
         }
-
         // =========================
         // QR IMAGE
         // =========================
@@ -37,7 +35,6 @@ namespace aps.net_order_system.Controllers
 
             return File(qrCodeImage, "image/png");
         }
-
         // =========================
         // GENERATE KHQR
         // =========================
@@ -71,7 +68,6 @@ namespace aps.net_order_system.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
-
         // =========================
         // DEEPLINK
         // =========================
@@ -81,46 +77,50 @@ namespace aps.net_order_system.Controllers
             var result = await _paymentService.GenerateDeeplinkAsync(dto.QrString);
             return Ok(result);
         }
-
         // =========================
         // CHECK PAYMENT
         // =========================
         [HttpGet("check-payment/{invoice}")]
         public async Task<IActionResult> CheckStatus(string invoice)
         {
-            var payment = await _db.Payments.FirstOrDefaultAsync(p => p.Invoice == invoice);
-
-            if (payment == null)
-                return Ok(new { status = "NOT_FOUND" });
-
-            if (payment.Status == "PAID")
-                return Ok(new { status = "PAID" });
-
-            var bakongResponse = await _paymentService.CheckPaymentStatusAsync(payment.Md5);
-
-            // 🔥 DEBUG (VERY IMPORTANT)
-            Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(bakongResponse));
-
-            // =========================
-            // REAL CHECK (FIXED LOGIC)
-            // =========================
-            var isPaid =
-                bakongResponse != null &&
-                bakongResponse.Data != null &&
-                (
-                    bakongResponse.Data.Status?.ToUpper() == "SUCCESS" ||
-                    bakongResponse.Data.Status?.ToUpper() == "COMPLETED"
-                );
-
-            if (isPaid)
+            try
             {
-                payment.Status = "PAID";
-                await _db.SaveChangesAsync();
+                var payment = await _db.Payments.FirstOrDefaultAsync(p => p.Invoice == invoice);
+                if (payment == null) return Ok(new { status = "NOT_FOUND" });
 
-                return Ok(new { status = "PAID" });
+                if (payment.Status == "PAID") return Ok(new { status = "PAID" });
+
+                var bakongResponse = await _paymentService.CheckPaymentStatusAsync(payment.Md5);
+
+                // LOG EVERYTHING - Check your terminal/output window for this!
+                Console.WriteLine($"DEBUG: Checking MD5: {payment.Md5}");
+                Console.WriteLine($"DEBUG: Bakong Full Response: {System.Text.Json.JsonSerializer.Serialize(bakongResponse)}");
+
+                // Logic parity with Node.js
+                // Node logic: if (response.data.responseCode === 0 || response.data.data)
+                if (bakongResponse != null && (bakongResponse.ResponseCode == 0 || bakongResponse.Data != null))
+                {
+                    // Optional: Double check the internal status string if Data exists
+                    var isActuallyPaid = bakongResponse.Data == null ||
+                                         bakongResponse.Data.Status == null ||
+                                         bakongResponse.Data.Status.ToUpper() == "SUCCESS" ||
+                                         bakongResponse.Data.Status.ToUpper() == "COMPLETED";
+
+                    if (isActuallyPaid)
+                    {
+                        payment.Status = "PAID";
+                        await _db.SaveChangesAsync();
+                        return Ok(new { status = "PAID" });
+                    }
+                }
+
+                return Ok(new { status = "PENDING" });
             }
-
-            return Ok(new { status = "PENDING" });
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Bakong Check Error: {ex.Message}");
+                return Ok(new { status = "PENDING" });
+            }
         }
     }
 }
