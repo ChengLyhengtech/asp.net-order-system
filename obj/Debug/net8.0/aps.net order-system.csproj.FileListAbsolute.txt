@@ -284,4 +284,5 @@ D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\refint\aps.net order-s
 D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\aps.net order-system.pdb
 D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\aps.net order-system.genruntimeconfig.cache
 D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\ref\aps.net order-system.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\QRCoder.dll
 D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
