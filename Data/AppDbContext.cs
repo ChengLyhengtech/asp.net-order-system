@@ -26,6 +26,10 @@ namespace aps.net_order_system.Data
             modelBuilder.Entity<UserModel>()
                 .HasIndex(u => u.Email)
                 .IsUnique();
+
+            modelBuilder.Entity<PaymentModel>()
+            .Property(p => p.Amount)
+            .HasColumnType("decimal(18,2)");
         }
 
     }

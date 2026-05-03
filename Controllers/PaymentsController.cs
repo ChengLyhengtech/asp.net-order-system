@@ -1,9 +1,6 @@
-﻿using System.Drawing;
-using System.Drawing.Imaging;
-using aps.net_order_system.Data;
+﻿using aps.net_order_system.Data;
 using aps.net_order_system.DTOs;
 using aps.net_order_system.Interface;
-using aps.net_order_system.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QRCoder;
@@ -11,7 +8,7 @@ using QRCoder;
 namespace aps.net_order_system.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api")]
     public class PaymentsController : ControllerBase
     {
         private readonly IPaymentService _paymentService;
@@ -22,38 +19,36 @@ namespace aps.net_order_system.Controllers
             _paymentService = paymentService;
             _db = db;
         }
+
+        // =========================
+        // QR IMAGE
+        // =========================
         [HttpGet("qr-image/{invoice}")]
-        public IActionResult GetQrImage(string invoice)
+        public async Task<IActionResult> GetQrImage(string invoice)
         {
-            var payment = _db.Payments.FirstOrDefault(x => x.Invoice == invoice);
+            var payment = await _db.Payments.FirstOrDefaultAsync(x => x.Invoice == invoice);
+            if (payment == null) return NotFound();
 
-            if (payment == null)
-                return NotFound(new { message = "Invoice not found" });
+            using var qrGenerator = new QRCodeGenerator();
+            using var qrCodeData = qrGenerator.CreateQrCode(payment.QrString, QRCodeGenerator.ECCLevel.Q);
+            using var qrCode = new PngByteQRCode(qrCodeData);
 
-            // IMPORTANT: use KHQR string, NOT MD5
-            var khqrResult = _paymentService.GenerateKhqr(new CreatePaymentRequestDto
-            {
-                OrderId = payment.Invoice,
-                Amount = payment.Amount,
-                Currency = "USD"
-            });
+            var qrCodeImage = qrCode.GetGraphic(20);
 
-            QRCodeGenerator generator = new QRCodeGenerator();
-            QRCodeData data = generator.CreateQrCode(khqrResult.QrString, QRCodeGenerator.ECCLevel.Q);
-
-            PngByteQRCode qrCode = new PngByteQRCode(data);
-            byte[] qrBytes = qrCode.GetGraphic(20);
-
-            return File(qrBytes, "image/png");
+            return File(qrCodeImage, "image/png");
         }
 
-        // 1. Generate the KHQR and save the initial record to DB
+        // =========================
+        // GENERATE KHQR
+        // =========================
         [HttpPost("generate-khqr")]
         public async Task<IActionResult> Generate([FromBody] CreatePaymentRequestDto request)
         {
+            if (string.IsNullOrEmpty(request.OrderId))
+                request.OrderId = $"SET-{DateTime.UtcNow.Ticks}";
+
             try
             {
-                // Logic within Service handles KHQR generation and MD5 hashing
                 var khqr = _paymentService.GenerateKhqr(request);
 
                 var payment = new PaymentModel
@@ -61,6 +56,7 @@ namespace aps.net_order_system.Controllers
                     Invoice = khqr.Invoice,
                     Amount = request.Amount,
                     Md5 = khqr.Md5,
+                    QrString = khqr.QrString,
                     Status = "PENDING",
                     CreatedAt = DateTime.UtcNow
                 };
@@ -72,40 +68,59 @@ namespace aps.net_order_system.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new
-                {
-                    error = ex.Message,
-                    inner = ex.InnerException?.Message
-                });
+                return BadRequest(new { message = ex.Message });
             }
         }
 
-        // 2. Poll this endpoint from the Frontend to see if the user has paid
-        [HttpGet("check-status/{invoice}")]
+        // =========================
+        // DEEPLINK
+        // =========================
+        [HttpPost("v1/generate_deeplink_by_qr")]
+        public async Task<IActionResult> GenerateDeeplink([FromBody] DeeplinkRequest dto)
+        {
+            var result = await _paymentService.GenerateDeeplinkAsync(dto.QrString);
+            return Ok(result);
+        }
+
+        // =========================
+        // CHECK PAYMENT
+        // =========================
+        [HttpGet("check-payment/{invoice}")]
         public async Task<IActionResult> CheckStatus(string invoice)
         {
             var payment = await _db.Payments.FirstOrDefaultAsync(p => p.Invoice == invoice);
 
             if (payment == null)
-                return NotFound(new { message = "Invoice not found" });
+                return Ok(new { status = "NOT_FOUND" });
 
-            // If we already know they paid, don't waste an API call to Bakong
             if (payment.Status == "PAID")
-                return Ok(new { status = "PAID", message = "Transaction already completed" });
+                return Ok(new { status = "PAID" });
 
-            // Call the Bakong external API via our Service
-            var result = await _paymentService.CheckPaymentStatusAsync(payment.Md5);
+            var bakongResponse = await _paymentService.CheckPaymentStatusAsync(payment.Md5);
 
-            // Logic: ResponseCode 0 means the API responded, and result.Data ensures a transaction was found
-            if (result.ResponseCode == 0 && result.Data != null)
+            // 🔥 DEBUG (VERY IMPORTANT)
+            Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(bakongResponse));
+
+            // =========================
+            // REAL CHECK (FIXED LOGIC)
+            // =========================
+            var isPaid =
+                bakongResponse != null &&
+                bakongResponse.Data != null &&
+                (
+                    bakongResponse.Data.Status?.ToUpper() == "SUCCESS" ||
+                    bakongResponse.Data.Status?.ToUpper() == "COMPLETED"
+                );
+
+            if (isPaid)
             {
                 payment.Status = "PAID";
                 await _db.SaveChangesAsync();
 
-                return Ok(new { status = "PAID", data = result.Data });
+                return Ok(new { status = "PAID" });
             }
 
-            return Ok(new { status = "PENDING", message = "Awaiting payment..." });
+            return Ok(new { status = "PENDING" });
         }
     }
 }

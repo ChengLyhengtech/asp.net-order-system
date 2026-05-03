@@ -1,6 +1,4 @@
 ﻿using System.Net.Http.Headers;
-using System.Net.Http.Json; // Ensure this is included for ReadFromJsonAsync
-using System.Text.Json;
 using aps.net_order_system.DTOs;
 using aps.net_order_system.Interface;
 using kh.gov.nbc.bakong_khqr;
@@ -17,28 +15,36 @@ public class PaymentService : IPaymentService
         _httpClient = httpClient;
     }
 
-
+    // =========================
+    // GENERATE KHQR
+    // =========================
     public PaymentResponseDto GenerateKhqr(CreatePaymentRequestDto request)
     {
-        string invoice = request.OrderId ?? $"INV-{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}";
+        string invoice = $"INV-{DateTime.UtcNow:yyyyMMddHHmmssfff}";
 
-        var individualInfo = new IndividualInfo
+        var merchantInfo = new MerchantInfo
         {
             BakongAccountID = _config["Bakong:BakongId"],
             MerchantName = _config["Bakong:MerchantName"],
             MerchantCity = _config["Bakong:MerchantCity"],
-            Currency = request.Currency.ToUpper() == "USD" ? KHQRCurrency.USD : KHQRCurrency.KHR,
+
+            MerchantID = _config["Bakong:AcquiringId"],
+
+            AcquiringBank = "Bakong",
+            Currency = KHQRCurrency.USD,
             Amount = (double)request.Amount,
             BillNumber = invoice,
-            ExpirationTimestamp = request.ExpiryDate == default
-                ? DateTimeOffset.UtcNow.AddMinutes(30).ToUnixTimeMilliseconds()
-                : new DateTimeOffset(request.ExpiryDate).ToUnixTimeMilliseconds()
+
+            // ⚠️ MUST be MILLISECONDS (NOT seconds)
+            ExpirationTimestamp = DateTimeOffset
+                .UtcNow.AddMinutes(30)
+                .ToUnixTimeMilliseconds()
         };
 
-        var result = BakongKHQR.GenerateIndividual(individualInfo);
+        var result = BakongKHQR.GenerateMerchant(merchantInfo);
 
-        if (result.Status?.Code != 0)
-            throw new Exception(result.Status?.Message ?? "Failed to generate KHQR");
+        if (result.Status.Code != 0)
+            throw new Exception(result.Status.Message);
 
         return new PaymentResponseDto
         {
@@ -48,44 +54,49 @@ public class PaymentService : IPaymentService
         };
     }
 
-    public async Task<CheckTransactionResponseDto> CheckPaymentStatusAsync(string md5)
+    // =========================
+    // CHECK PAYMENT
+    // =========================
+    public async Task<CheckTransactionResponseDto?> CheckPaymentStatusAsync(string md5)
     {
-        var baseUrl = _config["Bakong:ApiBaseUrl"] ?? "https://api-bakong.nbc.gov.kh";
-        var token = _config["Bakong:AuthToken"];
+        _httpClient.DefaultRequestHeaders.Authorization =
+            new AuthenticationHeaderValue("Bearer", _config["Bakong:Token"]);
 
-        using var request = new HttpRequestMessage(HttpMethod.Post, $"{baseUrl}/v1/check_transaction_by_md5");
-        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
-        request.Content = JsonContent.Create(new { md5 });
+        var response = await _httpClient.PostAsJsonAsync(
+            "https://api-bakong.nbc.gov.kh/v1/check_transaction_by_md5",
+            new { md5 }
+        );
 
-        try
+        if (!response.IsSuccessStatusCode)
+            return null;
+
+        return await response.Content.ReadFromJsonAsync<CheckTransactionResponseDto>();
+    }
+
+    // =========================
+    // DEEPLINK
+    // =========================
+    public async Task<object> GenerateDeeplinkAsync(string qrString)
+    {
+        var payload = new
         {
-            var response = await _httpClient.SendAsync(request);
-
-            if (!response.IsSuccessStatusCode)
+            qr = qrString,
+            sourceInfo = new
             {
-                return new CheckTransactionResponseDto
-                {
-                    ResponseCode = 1,
-                    ResponseMessage = $"API Error: {response.StatusCode}"
-                };
+                appIconUrl = "https://bakong.nbc.gov.kh/images/logo.svg",
+                appName = "Fantastic",
+                appDeepLinkCallback = "https://bakong.nbc.gov.kh/"
             }
+        };
 
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            var result = await response.Content.ReadFromJsonAsync<CheckTransactionResponseDto>(options);
+        _httpClient.DefaultRequestHeaders.Authorization =
+            new AuthenticationHeaderValue("Bearer", _config["Bakong:Token"]);
 
-            return result ?? new CheckTransactionResponseDto
-            {
-                ResponseCode = 1,
-                ResponseMessage = "Empty Response"
-            };
-        }
-        catch (Exception ex)
-        {
-            return new CheckTransactionResponseDto
-            {
-                ResponseCode = 1,
-                ResponseMessage = ex.Message
-            };
-        }
+        var response = await _httpClient.PostAsJsonAsync(
+            "https://api-bakong.nbc.gov.kh/v1/generate_deeplink_by_qr",
+            payload
+        );
+
+        return await response.Content.ReadFromJsonAsync<object>();
     }
 }
