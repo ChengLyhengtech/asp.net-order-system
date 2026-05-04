@@ -12,7 +12,7 @@ using aps.net_order_system.Data;
 namespace aps.net_order_system.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260504070455_InitialIdentitySetup")]
+    [Migration("20260504100825_InitialIdentitySetup")]
     partial class InitialIdentitySetup
     {
         /// <inheritdoc />
