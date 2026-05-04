@@ -138,6 +138,8 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 
 builder.Services.AddScoped<TotalCountOrderHandler>();
 
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
+
 // 3. Add Controllers and Swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
