@@ -12,19 +12,16 @@ namespace aps.net_order_system.Controllers
     public class UserController : ControllerBase
     {
         private readonly GetUsersHandler _getHandler;      // Missing previously
-        private readonly CreateUserHandler _createHandler; // Missing previously
         private readonly UpdateUserHandler _updateHandler;
         private readonly DeleteUserHandler _deleteHandler;
 
         // 1. Update constructor to inject ALL handlers
         public UserController(
             GetUsersHandler getHandler,
-            CreateUserHandler createHandler,
             UpdateUserHandler updateHandler,
             DeleteUserHandler deleteHandler)
         {
             _getHandler = getHandler;
-            _createHandler = createHandler;
             _updateHandler = updateHandler;
             _deleteHandler = deleteHandler;
         }
@@ -37,13 +34,7 @@ namespace aps.net_order_system.Controllers
             return Ok(users);
         }
 
-        // 3. Add the POST method
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] UserDto command)
-        {
-            var result = await _createHandler.Handle(command);
-            return Ok(result);
-        }
+       
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(string id, [FromBody] UpdateUserCommand command)

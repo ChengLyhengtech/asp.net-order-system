@@ -1,0 +1,448 @@
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\appsettings.Development.json
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\appsettings.json
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\aps.net order-system.staticwebassets.endpoints.json
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\aps.net order-system.exe
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\aps.net order-system.deps.json
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\aps.net order-system.runtimeconfig.json
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\aps.net order-system.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\aps.net order-system.pdb
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Azure.Core.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Azure.Identity.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Humanizer.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\System.CodeDom.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\System.Composition.Convention.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\System.Composition.Hosting.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\System.Composition.Runtime.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\System.Composition.TypedParts.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\System.Memory.Data.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\System.Runtime.Caching.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\aps.net order-system.csproj.AssemblyReference.cache
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\aps.net order-system.GeneratedMSBuildEditorConfig.editorconfig
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\aps.net order-system.AssemblyInfoInputs.cache
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\aps.net order-system.AssemblyInfo.cs
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\aps.net order-system.csproj.CoreCompileInputs.cache
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\aps.net order-system.MvcApplicationPartsAssemblyInfo.cs
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\aps.net order-system.MvcApplicationPartsAssemblyInfo.cache
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\rjimswa.dswa.cache.json
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\scopedcss\bundle\aps.net order-system.styles.css
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\staticwebassets.build.json
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\staticwebassets.build.json.cache
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\staticwebassets.development.json
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\aps.net .A5000A81.Up2Date
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\aps.net order-system.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\refint\aps.net order-system.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\aps.net order-system.pdb
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\aps.net order-system.genruntimeconfig.cache
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\ref\aps.net order-system.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\aps.net order-system.sourcelink.json
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\BCrypt.Net-Next.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\appsettings.Development.json
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\appsettings.json
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\aps.net order-system.staticwebassets.endpoints.json
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\aps.net order-system.exe
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\aps.net order-system.deps.json
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\aps.net order-system.runtimeconfig.json
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\aps.net order-system.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\aps.net order-system.pdb
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Azure.Core.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Azure.Identity.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\BCrypt.Net-Next.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Humanizer.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\System.CodeDom.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\System.Composition.Convention.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\System.Composition.Hosting.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\System.Composition.Runtime.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\System.Composition.TypedParts.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\System.Memory.Data.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\System.Runtime.Caching.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\aps.net order-system.csproj.AssemblyReference.cache
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\aps.net order-system.GeneratedMSBuildEditorConfig.editorconfig
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\aps.net order-system.AssemblyInfoInputs.cache
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\aps.net order-system.AssemblyInfo.cs
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\aps.net order-system.csproj.CoreCompileInputs.cache
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\aps.net order-system.MvcApplicationPartsAssemblyInfo.cs
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\aps.net order-system.MvcApplicationPartsAssemblyInfo.cache
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\aps.net order-system.sourcelink.json
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\rjimswa.dswa.cache.json
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\scopedcss\bundle\aps.net order-system.styles.css
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\staticwebassets.build.json
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\staticwebassets.build.json.cache
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\staticwebassets.development.json
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\swae.build.ex.cache
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\aps.net .A5000A81.Up2Date
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\aps.net order-system.dll
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\refint\aps.net order-system.dll
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\aps.net order-system.pdb
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\aps.net order-system.genruntimeconfig.cache
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\ref\aps.net order-system.dll
+D:\Web-Development\SA\coffe-order-dotnet\bin\Debug\net8.0\QRCoder.dll
+D:\Web-Development\SA\coffe-order-dotnet\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\kh.gov.nbc.bakong_khqr.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\MediatR.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\MediatR.Contracts.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\QRCoder.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+D:\Setec year3\SA\aps.net order-system\aps.net order-system\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\aps.net order-system.staticwebassets.endpoints.json
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\appsettings.Development.json
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\appsettings.json
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\aps.net order-system.exe
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\aps.net order-system.deps.json
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\aps.net order-system.runtimeconfig.json
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\aps.net order-system.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\aps.net order-system.pdb
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Azure.Core.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Azure.Identity.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\BCrypt.Net-Next.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Humanizer.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\kh.gov.nbc.bakong_khqr.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\MediatR.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\MediatR.Contracts.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.OpenApi.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Mono.TextTemplating.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Newtonsoft.Json.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\QRCoder.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\System.CodeDom.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\System.Composition.Convention.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\System.Composition.Hosting.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\System.Composition.Runtime.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\System.Composition.TypedParts.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\System.Drawing.Common.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\System.Memory.Data.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\System.Runtime.Caching.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\System.Security.Permissions.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\System.Windows.Extensions.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\aps.net order-system.csproj.AssemblyReference.cache
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\rpswa.dswa.cache.json
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\aps.net order-system.GeneratedMSBuildEditorConfig.editorconfig
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\aps.net order-system.AssemblyInfoInputs.cache
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\aps.net order-system.AssemblyInfo.cs
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\aps.net order-system.csproj.CoreCompileInputs.cache
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\aps.net order-system.MvcApplicationPartsAssemblyInfo.cs
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\aps.net order-system.MvcApplicationPartsAssemblyInfo.cache
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\aps.net order-system.sourcelink.json
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\rjimswa.dswa.cache.json
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\scopedcss\bundle\aps.net order-system.styles.css
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\staticwebassets.build.json
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\staticwebassets.build.json.cache
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\staticwebassets.development.json
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\swae.build.ex.cache
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\aps.net .A5000A81.Up2Date
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\aps.net order-system.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\refint\aps.net order-system.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\aps.net order-system.pdb
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\aps.net order-system.genruntimeconfig.cache
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\ref\aps.net order-system.dll
+E:\aZer0 asp.net\Sa-coffeesystem\asp.net-order-system\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

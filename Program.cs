@@ -1,36 +1,63 @@
+
+using aps.net_order_system.Commands;
 using aps.net_order_system.Commands.Create;
 using aps.net_order_system.Commands.Delete;
 using aps.net_order_system.Commands.Update;
 using aps.net_order_system.Data;
-using aps.net_order_system.Commands;
+using aps.net_order_system.Interface;
 using aps.net_order_system.Models;
 using aps.net_order_system.Queries;
+using aps.net_order_system.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using System.Text;
-//using aps.net_order_system.Commands;
-
-using aps.net_order_system.Interface;
-using aps.net_order_system.Services;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddMediatR(cfg => {
-    cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
-});
 
 // --- ADD CORS POLICY HERE ---
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend",
-        policy =>
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.AllowAnyHeader()
+              .AllowAnyMethod()
+              .SetIsOriginAllowed(origin => true) // Allow any origin
+              .AllowCredentials();
+    });
+});
+
+//By default, the Swagger UI doesn't know how to send your JWT token to the backend.
+builder.Services.AddSwaggerGen(option =>
+{
+    option.SwaggerDoc("v1", new OpenApiInfo { Title = "Order System API", Version = "v1" });
+    option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "Please enter a valid token",
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        BearerFormat = "JWT",
+        Scheme = "Bearer"
+    });
+    option.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
         {
-            policy.AllowAnyOrigin() // Your Live Server address
-                  .AllowAnyHeader()
-                  .AllowAnyMethod();
-        });
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type=ReferenceType.SecurityScheme,
+                    Id="Bearer"
+                }
+            },
+            new string[]{}
+        }
+    });
 });
 
 // 1. Database Configuration (Example for SQL Server)
@@ -52,30 +79,36 @@ builder.Services.AddIdentity<UserModel, IdentityRole>(options =>
 .AddDefaultTokenProviders();
 
 
-// JWT Authentication Setup
-var jwtKey = builder.Configuration["Jwt:Key"] ?? "YourSuperSecretKey123_DoNotUseInProduction!";
-builder.Services.AddAuthentication(options =>
-{
+// JWT Setup
+builder.Services.AddAuthentication(options => {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options =>
-{
+}).AddJwtBearer(options => {
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
+        ValidIssuer = builder.Configuration["JWT:Issuer"],
         ValidateAudience = true,
-        ValidateLifetime = true,
+        ValidAudience = builder.Configuration["JWT:Audience"],
         ValidateIssuerSigningKey = true,
-        ValidIssuer = builder.Configuration["Jwt:Issuer"] ?? "yourdomain.com",
-        ValidAudience = builder.Configuration["Jwt:Audience"] ?? "yourdomain.com",
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]))
     };
 });
+
+// In Program.cs
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        // This allows the API to match "expiryDate" to "ExpiryDate"
+        options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+    });
 
 // QRCode 
 builder.Services.AddDataProtection();
 builder.Services.AddScoped<ITableQrService, TableQrService>();
+//KHQR
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddHttpClient<IPaymentService, PaymentService>();
 
 // 2. Register All Handlers (CQRS)
 builder.Services.AddScoped<GetCategoriesHandler>();
@@ -84,7 +117,7 @@ builder.Services.AddScoped<UpdateCategoriesHandler>();
 builder.Services.AddScoped<DeleteCategoriesHandler>();
 
 builder.Services.AddScoped<GetUsersHandler>();
-builder.Services.AddScoped<CreateUserHandler>();
+//builder.Services.AddScoped<CreateUserHandler>();
 builder.Services.AddScoped<UpdateUserHandler>();
 builder.Services.AddScoped<DeleteUserHandler>();
 
@@ -100,9 +133,12 @@ builder.Services.AddScoped<GetOrderQueryHandler>();
 builder.Services.AddScoped<CreateOrderCommandHandler>();
 builder.Services.AddScoped<UpdateOrderStatusCommandHandler>();
 builder.Services.AddScoped<DeleteOrderCommandHandler>();
+builder.Services.AddScoped<ITokenService, TokenService>();
 // -----------------------
 
 builder.Services.AddScoped<TotalCountOrderHandler>();
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
 
 // 3. Add Controllers and Swagger
 builder.Services.AddControllers();
@@ -127,5 +163,19 @@ app.UseHttpsRedirection();
 app.UseAuthentication(); // <--- ADD THIS LINE HERE
 app.UseAuthorization();
 app.MapControllers();
+
+
+//Before you can register a user with a role, those roles must exist in your database.
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    string[] roles = { "Admin", "Staff", "User" };
+
+    foreach (var role in roles)
+    {
+        if (!await roleManager.RoleExistsAsync(role))
+            await roleManager.CreateAsync(new IdentityRole(role));
+    }
+}
 
 app.Run();
