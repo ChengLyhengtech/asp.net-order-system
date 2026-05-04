@@ -286,6 +286,22 @@ namespace aps.net_order_system.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("aps.net_order_system.Models.TotalCountOderModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("TotalCount")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TotalCountOrders");
+                });
+
             modelBuilder.Entity("aps.net_order_system.Models.UserModel", b =>
                 {
                     b.Property<string>("Id")

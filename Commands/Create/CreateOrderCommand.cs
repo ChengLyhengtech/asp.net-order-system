@@ -1,9 +1,11 @@
 ﻿using aps.net_order_system.Data;
 using aps.net_order_system.Models;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace aps.net_order_system.Commands
 {
-    public class CreateOrderItemCommand
+    public class CreateOrderItemCommand 
     {
         public int ProductId { get; set; }
         public int Quantity { get; set; }
@@ -39,7 +41,6 @@ namespace aps.net_order_system.Commands
                 var product = await _context.Products.FindAsync(item.ProductId);
                 if (product == null) continue;
 
-                // FIX: Cast to decimal if product.Price is float/double
                 var subtotal = (decimal)product.Price * item.Quantity;
                 totalAmount += subtotal;
 
@@ -54,6 +55,24 @@ namespace aps.net_order_system.Commands
 
             order.TotalAmount = totalAmount;
             _context.Orders.Add(order);
+
+            // --- START: GLOBAL COUNTER LOGIC ---
+            // We fetch the first (and usually only) row in the TotalCountOrder table
+            var globalCounter = await _context.TotalCountOrders.FirstOrDefaultAsync();
+
+            if (globalCounter == null)
+            {
+                // If no record exists yet, create the very first one
+                _context.TotalCountOrders.Add(new TotalCountOderModel { TotalCount = 1 });
+            }
+            else
+            {
+                // Increment the existing total by 1 for this new order
+                globalCounter.TotalCount += 1;
+            }
+            // --- END: GLOBAL COUNTER LOGIC ---
+
+            // SaveChanges will now save both the Order AND the updated TotalCount
             await _context.SaveChangesAsync();
 
             return order.Id;
