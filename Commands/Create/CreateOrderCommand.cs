@@ -25,11 +25,15 @@ namespace aps.net_order_system.Commands
 
         public async Task<int> Handle(CreateOrderCommand command)
         {
+            if (command.Items == null || !command.Items.Any())
+                throw new Exception("Order must have at least one item");
+
             var order = new OrderModel
             {
                 OrderId = $"ORD-{Guid.NewGuid().ToString()[..5].ToUpper()}",
                 TableId = command.TableId,
                 Status = "Pending",
+                PaymentStatus = "Unpaid", // ✅ FIX
                 CreatedAt = DateTime.Now,
                 OrderItems = new List<OrderItemModel>()
             };
@@ -38,8 +42,13 @@ namespace aps.net_order_system.Commands
 
             foreach (var item in command.Items)
             {
+                if (item.Quantity <= 0)
+                    throw new Exception("Quantity must be greater than 0");
+
                 var product = await _context.Products.FindAsync(item.ProductId);
-                if (product == null) continue;
+
+                if (product == null)
+                    throw new Exception($"Product with ID {item.ProductId} not found"); // ✅ FIX
 
                 var subtotal = (decimal)product.Price * item.Quantity;
                 totalAmount += subtotal;
@@ -54,25 +63,21 @@ namespace aps.net_order_system.Commands
             }
 
             order.TotalAmount = totalAmount;
+
             _context.Orders.Add(order);
 
-            // --- START: GLOBAL COUNTER LOGIC ---
-            // We fetch the first (and usually only) row in the TotalCountOrder table
+            // ✅ Global counter
             var globalCounter = await _context.TotalCountOrders.FirstOrDefaultAsync();
 
             if (globalCounter == null)
             {
-                // If no record exists yet, create the very first one
                 _context.TotalCountOrders.Add(new TotalCountOderModel { TotalCount = 1 });
             }
             else
             {
-                // Increment the existing total by 1 for this new order
                 globalCounter.TotalCount += 1;
             }
-            // --- END: GLOBAL COUNTER LOGIC ---
 
-            // SaveChanges will now save both the Order AND the updated TotalCount
             await _context.SaveChangesAsync();
 
             return order.Id;

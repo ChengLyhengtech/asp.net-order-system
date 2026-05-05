@@ -46,7 +46,7 @@ namespace aps.net_order_system.Controllers
 
         // POST: api/Product
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] ProductCreateDto command)
+        public async Task<IActionResult> Create([FromForm] ProductCreateDto command)
         {
             try
             {

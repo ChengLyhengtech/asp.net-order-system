@@ -133,6 +133,7 @@ builder.Services.AddScoped<CreateOrderCommandHandler>();
 builder.Services.AddScoped<UpdateOrderStatusCommandHandler>();
 builder.Services.AddScoped<DeleteOrderCommandHandler>();
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<GetStaffHistoryHandler>();
 // -----------------------
 
 builder.Services.AddScoped<TotalCountOrderHandler>();

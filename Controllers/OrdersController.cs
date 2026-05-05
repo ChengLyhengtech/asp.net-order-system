@@ -20,6 +20,7 @@ namespace aps.net_order_system.Controllers
         private readonly DeleteOrderCommandHandler _deleteHandler;
         private readonly TotalCountOrderHandler _totalCountOrder;
         private readonly IMediator _mediator;
+        private readonly GetStaffHistoryHandler _getStaffHistoryHandler;
 
         public OrdersController(
             GetAllOrdersQueryHandler getAllHandler,
@@ -28,7 +29,8 @@ namespace aps.net_order_system.Controllers
             UpdateOrderStatusCommandHandler updateHandler,
             DeleteOrderCommandHandler deleteHandler,
             TotalCountOrderHandler totalCountOrder,
-            IMediator mediator)
+            IMediator mediator,
+            GetStaffHistoryHandler getStaffHistoryHandler)
         {
             _getAllHandler = getAllHandler;
             _getByIdHandler = getByIdHandler;
@@ -37,6 +39,7 @@ namespace aps.net_order_system.Controllers
             _deleteHandler = deleteHandler;
             _totalCountOrder = totalCountOrder;
             _mediator = mediator;
+            _getStaffHistoryHandler = getStaffHistoryHandler;
         }
 
         [HttpGet]
@@ -102,6 +105,15 @@ namespace aps.net_order_system.Controllers
                 Id = orderId,
                 Message = "Manual order created successfully."
             });
+        }
+
+        [HttpGet("history/staff")]
+        public async Task<IActionResult> GetStaffHistory(
+         [FromQuery] DateTime? from,
+         [FromQuery] DateTime? to)
+        {
+            var result = await _getStaffHistoryHandler.Handle(from, to);
+            return Ok(result);
         }
     }
 }
