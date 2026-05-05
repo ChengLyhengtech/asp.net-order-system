@@ -1,4 +1,3 @@
-
 using aps.net_order_system.Commands;
 using aps.net_order_system.Commands.Create;
 using aps.net_order_system.Commands.Delete;
@@ -138,6 +137,8 @@ builder.Services.AddScoped<GetStaffHistoryHandler>();
 // -----------------------
 
 builder.Services.AddScoped<TotalCountOrderHandler>();
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
 
 // 3. Add Controllers and Swagger
 builder.Services.AddControllers();

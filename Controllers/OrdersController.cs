@@ -3,6 +3,8 @@ using aps.net_order_system.Data;
 using aps.net_order_system.Queries;
 using aps.net_order_system.Commands;
 using aps.net_order_system.DTOs;
+using MediatR;
+using aps.net_order_system.Commands.Create;
 
 namespace aps.net_order_system.Controllers
 {
@@ -17,6 +19,7 @@ namespace aps.net_order_system.Controllers
         private readonly UpdateOrderStatusCommandHandler _updateHandler;
         private readonly DeleteOrderCommandHandler _deleteHandler;
         private readonly TotalCountOrderHandler _totalCountOrder;
+        private readonly IMediator _mediator;
         private readonly GetStaffHistoryHandler _getStaffHistoryHandler;
 
         public OrdersController(
@@ -26,6 +29,7 @@ namespace aps.net_order_system.Controllers
             UpdateOrderStatusCommandHandler updateHandler,
             DeleteOrderCommandHandler deleteHandler,
             TotalCountOrderHandler totalCountOrder,
+            IMediator mediator,
             GetStaffHistoryHandler getStaffHistoryHandler)
         {
             _getAllHandler = getAllHandler;
@@ -34,6 +38,7 @@ namespace aps.net_order_system.Controllers
             _updateHandler = updateHandler;
             _deleteHandler = deleteHandler;
             _totalCountOrder = totalCountOrder;
+            _mediator = mediator;
             _getStaffHistoryHandler = getStaffHistoryHandler;
         }
 
@@ -83,6 +88,23 @@ namespace aps.net_order_system.Controllers
         {
             var success = await _deleteHandler.Handle(new DeleteOrderCommand { Id = id });
             return success ? NoContent() : NotFound();
+        }
+
+        [HttpPost("manual")]
+        public async Task<IActionResult> CreateManualOrder([FromBody] CreateManualOrderCommand command)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var orderId = await _mediator.Send(command);
+
+            return Ok(new
+            {
+                Id = orderId,
+                Message = "Manual order created successfully."
+            });
         }
 
         [HttpGet("history/staff")]

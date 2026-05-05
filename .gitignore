@@ -11,10 +11,9 @@ obj/
 appsettings.json
 appsettings.Development.json
 
-# User-specific project settings
+# បន្ថែមការកំណត់ស្តង់ដារសម្រាប់ .NET
+[Bb]in/
+[Oo]bj/
+.vs/
+.vscode/
 *.user
-*.userosscache
-*.sln.docstates
-
-# Ignore all Migrations folders
-**/Migrations/
