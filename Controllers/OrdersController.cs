@@ -17,6 +17,7 @@ namespace aps.net_order_system.Controllers
         private readonly UpdateOrderStatusCommandHandler _updateHandler;
         private readonly DeleteOrderCommandHandler _deleteHandler;
         private readonly TotalCountOrderHandler _totalCountOrder;
+        private readonly GetStaffHistoryHandler _getStaffHistoryHandler;
 
         public OrdersController(
             GetAllOrdersQueryHandler getAllHandler,
@@ -24,7 +25,8 @@ namespace aps.net_order_system.Controllers
             CreateOrderCommandHandler createHandler,
             UpdateOrderStatusCommandHandler updateHandler,
             DeleteOrderCommandHandler deleteHandler,
-            TotalCountOrderHandler totalCountOrder)
+            TotalCountOrderHandler totalCountOrder,
+            GetStaffHistoryHandler getStaffHistoryHandler)
         {
             _getAllHandler = getAllHandler;
             _getByIdHandler = getByIdHandler;
@@ -32,6 +34,7 @@ namespace aps.net_order_system.Controllers
             _updateHandler = updateHandler;
             _deleteHandler = deleteHandler;
             _totalCountOrder = totalCountOrder;
+            _getStaffHistoryHandler = getStaffHistoryHandler;
         }
 
         [HttpGet]
@@ -80,6 +83,15 @@ namespace aps.net_order_system.Controllers
         {
             var success = await _deleteHandler.Handle(new DeleteOrderCommand { Id = id });
             return success ? NoContent() : NotFound();
+        }
+
+        [HttpGet("history/staff")]
+        public async Task<IActionResult> GetStaffHistory(
+         [FromQuery] DateTime? from,
+         [FromQuery] DateTime? to)
+        {
+            var result = await _getStaffHistoryHandler.Handle(from, to);
+            return Ok(result);
         }
     }
 }
