@@ -220,6 +220,10 @@ namespace aps.net_order_system.Migrations
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
+                    b.Property<string>("PaymentStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 

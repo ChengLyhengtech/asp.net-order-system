@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace aps.net_order_system.Migrations
 {
     /// <inheritdoc />
-    public partial class database : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -255,7 +255,8 @@ namespace aps.net_order_system.Migrations
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     SpecialInstructions = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Subtotal = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    Subtotal = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    PaymentStatus = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

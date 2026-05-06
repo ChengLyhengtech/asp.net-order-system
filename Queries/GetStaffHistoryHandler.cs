@@ -12,16 +12,27 @@ namespace aps.net_order_system.Queries
         {
             _context = context;
         }
-
         public async Task<List<OrderDto>> Handle(DateTime? from = null, DateTime? to = null)
         {
-            var start = from ?? DateTime.UtcNow.Date.AddDays(-1);
-            var end = to ?? DateTime.UtcNow.Date.AddDays(1);
-
-            return await _context.Orders
+            var query = _context.Orders
                 .Include(o => o.OrderItems)
                 .ThenInclude(oi => oi.Product)
-                .Where(o => o.CreatedAt >= start && o.CreatedAt < end)
+                .AsQueryable();
+
+            if (from.HasValue)
+            {
+                var start = DateTime.SpecifyKind(from.Value, DateTimeKind.Utc);
+                query = query.Where(o => o.CreatedAt >= start);
+            }
+
+            if (to.HasValue)
+            {
+                var end = DateTime.SpecifyKind(to.Value, DateTimeKind.Utc);
+                query = query.Where(o => o.CreatedAt <= end);
+            }
+
+            return await query
+                .OrderByDescending(o => o.CreatedAt)
                 .Select(o => new OrderDto
                 {
                     Id = o.Id,
@@ -37,7 +48,13 @@ namespace aps.net_order_system.Queries
                         ProductId = i.ProductId,
                         Quantity = i.Quantity,
                         SpecialInstructions = i.SpecialInstructions,
-                        Subtotal = i.Subtotal
+                        Subtotal = i.Subtotal,
+                        Product = i.Product == null ? null : new ProductDto
+                        {
+                            Id = i.Product.Id,
+                            Name = i.Product.Name,
+                            Price = i.Product.Price
+                        }
                     }).ToList()
                 })
                 .ToListAsync();

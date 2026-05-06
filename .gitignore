@@ -11,9 +11,7 @@ obj/
 appsettings.json
 appsettings.Development.json
 
-# បន្ថែមការកំណត់ស្តង់ដារសម្រាប់ .NET
-[Bb]in/
-[Oo]bj/
-.vs/
-.vscode/
+# User-specific project settings
 *.user
+*.userosscache
+*.sln.docstates

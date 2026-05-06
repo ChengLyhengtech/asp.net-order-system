@@ -12,8 +12,8 @@ using aps.net_order_system.Data;
 namespace aps.net_order_system.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260504100706_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20260505154117_UpdateOrderModel")]
+    partial class UpdateOrderModel
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -222,6 +222,10 @@ namespace aps.net_order_system.Migrations
 
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
+
+                    b.Property<string>("PaymentStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");

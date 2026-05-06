@@ -5,7 +5,7 @@
 namespace aps.net_order_system.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialIdentitySetup : Migration
+    public partial class InitialCreates : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
