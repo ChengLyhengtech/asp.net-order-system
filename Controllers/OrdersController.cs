@@ -115,5 +115,18 @@ namespace aps.net_order_system.Controllers
             var result = await _getStaffHistoryHandler.Handle(from, to);
             return Ok(result);
         }
+        [HttpGet("filter/status")]
+        public async Task<ActionResult<List<OrderDto>>> GetByStatus([FromQuery] string status)
+        {
+            if (string.IsNullOrEmpty(status))
+            {
+                return BadRequest("Status parameter is required.");
+            }
+
+            // Using Mediator to send the query to the handler
+            var result = await _mediator.Send(new GetOrdersByStatusQuery(status));
+
+            return Ok(result);
+        }
     }
 }
