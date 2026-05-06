@@ -1,9 +1,11 @@
 ﻿using aps.net_order_system.Data;
 using aps.net_order_system.Models;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace aps.net_order_system.Commands
 {
-    public class CreateOrderItemCommand
+    public class CreateOrderItemCommand 
     {
         public int ProductId { get; set; }
         public int Quantity { get; set; }
@@ -23,11 +25,15 @@ namespace aps.net_order_system.Commands
 
         public async Task<int> Handle(CreateOrderCommand command)
         {
+            if (command.Items == null || !command.Items.Any())
+                throw new Exception("Order must have at least one item");
+
             var order = new OrderModel
             {
                 OrderId = $"ORD-{Guid.NewGuid().ToString()[..5].ToUpper()}",
                 TableId = command.TableId,
                 Status = "Pending",
+                PaymentStatus = "Unpaid", // ✅ FIX
                 CreatedAt = DateTime.Now,
                 OrderItems = new List<OrderItemModel>()
             };
@@ -36,10 +42,14 @@ namespace aps.net_order_system.Commands
 
             foreach (var item in command.Items)
             {
-                var product = await _context.Products.FindAsync(item.ProductId);
-                if (product == null) continue;
+                if (item.Quantity <= 0)
+                    throw new Exception("Quantity must be greater than 0");
 
-                // FIX: Cast to decimal if product.Price is float/double
+                var product = await _context.Products.FindAsync(item.ProductId);
+
+                if (product == null)
+                    throw new Exception($"Product with ID {item.ProductId} not found"); // ✅ FIX
+
                 var subtotal = (decimal)product.Price * item.Quantity;
                 totalAmount += subtotal;
 
@@ -53,7 +63,21 @@ namespace aps.net_order_system.Commands
             }
 
             order.TotalAmount = totalAmount;
+
             _context.Orders.Add(order);
+
+            // ✅ Global counter
+            var globalCounter = await _context.TotalCountOrders.FirstOrDefaultAsync();
+
+            if (globalCounter == null)
+            {
+                _context.TotalCountOrders.Add(new TotalCountOderModel { TotalCount = 1 });
+            }
+            else
+            {
+                globalCounter.TotalCount += 1;
+            }
+
             await _context.SaveChangesAsync();
 
             return order.Id;

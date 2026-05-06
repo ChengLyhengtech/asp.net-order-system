@@ -11,6 +11,7 @@ namespace aps.net_order_system.Models
         public string SpecialInstructions { get; set; } = string.Empty;
         [Column(TypeName = "decimal(18,2)")]
         public decimal Subtotal { get; set; }
+        public string PaymentStatus { get; set; } = "Unpaid";
 
         // Navigation Properties
         public virtual OrderModel? Order { get; set; }

@@ -28,7 +28,10 @@ namespace aps.net_order_system.Queries
                     OrderId = o.OrderId,
                     TableId = o.TableId,
                     Status = o.Status,
+                    PaymentStatus = o.PaymentStatus,
                     TotalAmount = o.TotalAmount,
+                    CreatedAt = o.CreatedAt,
+
                     Items = o.OrderItems.Select(oi => new OrderItemDto
                     {
                         Id = oi.Id,

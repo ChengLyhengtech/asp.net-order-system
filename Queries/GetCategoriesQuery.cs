@@ -27,6 +27,7 @@ namespace aps.net_order_system.Queries
                     // Map products to DTO to break the loop
                     Products = c.Products.Select(p => new ProductDto
                     {
+                        Id = p.Id,
                         Name = p.Name,
                         ProductImg = p.ProductImg,
                         Description = p.Description,

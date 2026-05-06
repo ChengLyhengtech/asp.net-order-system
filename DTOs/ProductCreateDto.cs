@@ -5,7 +5,7 @@ namespace aps.net_order_system.DTOs
     public class ProductCreateDto
     {
         [Required(ErrorMessage = "Img Url is required")]
-        public string ProductImg { get; set; } = string.Empty;
+        public IFormFile ProductImg { get; set; }
 
         [Required(ErrorMessage = "Product Name is required")]
         public string Name { get; set; } = string.Empty;

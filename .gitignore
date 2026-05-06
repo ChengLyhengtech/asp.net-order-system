@@ -15,6 +15,3 @@ appsettings.Development.json
 *.user
 *.userosscache
 *.sln.docstates
-
-# Ignore all Migrations folders
-**/Migrations/

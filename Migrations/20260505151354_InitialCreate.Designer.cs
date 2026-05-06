@@ -12,8 +12,8 @@ using aps.net_order_system.Data;
 namespace aps.net_order_system.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260428123637_InitialSetup")]
-    partial class InitialSetup
+    [Migration("20260505151354_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -158,6 +158,39 @@ namespace aps.net_order_system.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("PaymentModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Invoice")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Md5")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("QrString")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Payments");
+                });
+
             modelBuilder.Entity("aps.net_order_system.Models.CategoriesModel", b =>
                 {
                     b.Property<int>("Id")
@@ -189,6 +222,10 @@ namespace aps.net_order_system.Migrations
 
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
+
+                    b.Property<string>("PaymentStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -284,6 +321,22 @@ namespace aps.net_order_system.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("aps.net_order_system.Models.TotalCountOderModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("TotalCount")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TotalCountOrders");
                 });
 
             modelBuilder.Entity("aps.net_order_system.Models.UserModel", b =>
