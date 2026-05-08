@@ -14,12 +14,14 @@ namespace aps.net_order_system.Commands.Create
 
             if (command.ProductImg != null)
             {
-                var folder = Path.Combine("wwwroot", "images");
-                Directory.CreateDirectory(folder);
+                // 1. Point to the 'uploads' folder you just created/configured
+                var folder = Path.Combine(Directory.GetCurrentDirectory(), "uploads");
+                if (!Directory.Exists(folder))
+                {
+                    Directory.CreateDirectory(folder);
+                }
 
-                fileName = Guid.NewGuid().ToString() +
-                           Path.GetExtension(command.ProductImg.FileName);
-
+                fileName = Guid.NewGuid().ToString() + Path.GetExtension(command.ProductImg.FileName);
                 var path = Path.Combine(folder, fileName);
 
                 using (var stream = new FileStream(path, FileMode.Create))
@@ -31,7 +33,7 @@ namespace aps.net_order_system.Commands.Create
             var product = new ProductModel
             {
                 Name = command.Name,
-                ProductImg = fileName, // ✅ save string only
+                ProductImg = fileName, // We save just the filename "guid.jpg"
                 Description = command.Description,
                 Price = command.Price,
                 IsAvailable = command.IsAvailable,
