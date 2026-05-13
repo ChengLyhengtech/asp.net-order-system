@@ -23,7 +23,9 @@ namespace aps.net_order_system.Queries
                     // Map the properties manually
                     Id = p.Id,
                     Name = p.Name,
-                    ProductImg = p.ProductImg,
+                    ProductImg = !string.IsNullOrEmpty(p.ProductImg)
+                         ? $"/uploads/{p.ProductImg}"
+                         : "/uploads/default.png",
                     Description = p.Description,
                     Price = p.Price,
                     IsAvailable = p.IsAvailable,

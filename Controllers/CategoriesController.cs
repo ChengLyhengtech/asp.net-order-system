@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using aps.net_order_system.Commands.Update;
 using aps.net_order_system.Commands.Delete;
 
+
 namespace aps.net_order_system.Controllers
 {
     [ApiController]
@@ -15,18 +16,21 @@ namespace aps.net_order_system.Controllers
         private readonly CreateCategoriesCommand _createHandler;
         private readonly UpdateCategoriesHandler _updateHandler;
         private readonly DeleteCategoriesHandler _deleteHandler;
+        private readonly GetCategoryByIdHandler _getbyId;
 
         public CategoriesController(
             GetCategoriesHandler getHandler,
             CreateCategoriesCommand createHandler,
             UpdateCategoriesHandler updateHandler,
-            DeleteCategoriesHandler deleteHandler
+            DeleteCategoriesHandler deleteHandler,
+            GetCategoryByIdHandler getId
             )
         {
             _getHandler = getHandler;
             _createHandler = createHandler;
             _updateHandler = updateHandler;
             _deleteHandler = deleteHandler;
+            _getbyId = getId;
         }
 
         [HttpGet]
@@ -69,6 +73,20 @@ namespace aps.net_order_system.Controllers
                 return NotFound($"Category {id} not found.");
             }
             return NoContent();
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetId(int id)
+        {
+            var query = new GetCategoryByIdQuery(id);
+            var result = await _getbyId.Handle(query, default);
+
+            if (result == null)
+            {
+                return NotFound($"Category with ID {id} was not found.");
+            }
+
+            return Ok(result);
         }
     }
 }

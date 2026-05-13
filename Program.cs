@@ -14,6 +14,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using System.Text.Json;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -114,6 +115,7 @@ builder.Services.AddScoped<GetCategoriesHandler>();
 builder.Services.AddScoped<CreateCategoriesCommand>();
 builder.Services.AddScoped<UpdateCategoriesHandler>();
 builder.Services.AddScoped<DeleteCategoriesHandler>();
+builder.Services.AddScoped<GetCategoryByIdHandler>();
 
 builder.Services.AddScoped<GetUsersHandler>();
 //builder.Services.AddScoped<CreateUserHandler>();
@@ -148,7 +150,15 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-    
+app.UseStaticFiles(); // Enables files in wwwroot
+
+// Manually expose the 'uploads' folder
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+           Path.Combine(builder.Environment.ContentRootPath, "uploads")),
+    RequestPath = "/uploads"
+});
 
 app.UseCors("AllowFrontend");
 
