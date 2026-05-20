@@ -1,6 +1,5 @@
 ﻿using aps.net_order_system.Data;
 using aps.net_order_system.DTOs;
-using aps.net_order_system.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace aps.net_order_system.Queries
@@ -23,18 +22,9 @@ namespace aps.net_order_system.Queries
                 {
                     Id = c.Id,
                     CategoryName = c.CategoryName,
-                    ImageUrl = c.ImageUrl,
-                    // Map products to DTO to break the loop
-                    Products = c.Products.Select(p => new ProductDto
-                    {
-                        Id = p.Id,
-                        Name = p.Name,
-                        ProductImg = p.ProductImg,
-                        Description = p.Description,
-                        Price = p.Price,
-                        IsAvailable = p.IsAvailable,
-                        CategoryId = p.CategoryId
-                    }).ToList()
+                    ImageUrl = !string.IsNullOrEmpty(c.ImageUrl)
+                         ? $"/uploads/{c.ImageUrl}"
+                         : "/uploads/default-category.png"
                 })
                 .ToListAsync();
         }

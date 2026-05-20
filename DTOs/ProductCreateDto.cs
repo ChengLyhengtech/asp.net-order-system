@@ -19,5 +19,9 @@ namespace aps.net_order_system.DTOs
 
         [Required]
         public int CategoryId { get; set; }
+
+        public decimal DiscountPercentage { get; set; }
+        public DateTime? DiscountStartDate { get; set; }
+        public DateTime? DiscountEndDate { get; set; }
     }
 }

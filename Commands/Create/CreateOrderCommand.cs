@@ -33,7 +33,7 @@ namespace aps.net_order_system.Commands
                 OrderId = $"ORD-{Guid.NewGuid().ToString()[..5].ToUpper()}",
                 TableId = command.TableId,
                 Status = "Pending",
-                PaymentStatus = "Unpaid", // ✅ FIX
+                PaymentStatus = "Paid", // ✅ FIX
                 CreatedAt = DateTime.Now,
                 OrderItems = new List<OrderItemModel>()
             };
