@@ -16,5 +16,12 @@ namespace aps.net_order_system.Models
         public int CategoryId { get; set; }
         [ForeignKey("CategoryId")]
         public CategoriesModel? Category { get; set; }
+
+        // discount
+        [Column(TypeName = "decimal(5,2)")]
+        public decimal DiscountPercentage { get; set; }
+
+        public DateTime? DiscountStartDate { get; set; }
+        public DateTime? DiscountEndDate { get; set; }
     }
 }

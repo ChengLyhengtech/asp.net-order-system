@@ -29,7 +29,11 @@ namespace aps.net_order_system.Queries
                     Description = p.Description,
                     Price = p.Price,
                     IsAvailable = p.IsAvailable,
-                    CategoryId = p.CategoryId
+                    CategoryId = p.CategoryId,
+
+                    DiscountPercentage = p.DiscountPercentage,
+                    DiscountStartDate = p.DiscountStartDate,
+                    DiscountEndDate = p.DiscountEndDate
                 })
                 .ToListAsync();
         }

@@ -12,8 +12,5 @@ namespace aps.net_order_system.DTOs
         [Required(ErrorMessage = "Category Name is required")]
         [StringLength(100)]
         public string CategoryName { get; set; } = string.Empty;
-
-        // Add this line to store the products in your DTO
-        public List<ProductDto> Products { get; set; } = new List<ProductDto>();
     }
 }
