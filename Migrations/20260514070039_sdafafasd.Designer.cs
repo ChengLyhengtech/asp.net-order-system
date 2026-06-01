@@ -12,8 +12,8 @@ using aps.net_order_system.Data;
 namespace aps.net_order_system.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260506033029_InitialIdentitySetup")]
-    partial class InitialIdentitySetup
+    [Migration("20260514070039_sdafafasd")]
+    partial class sdafafasd
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
