@@ -8,7 +8,7 @@ namespace aps.net_order_system.Models
         public string OrderId { get; set; } = string.Empty; // e.g., "ORD-005"
         public int TableId { get; set; }
         public string Status { get; set; } = "Pending";
-        public string PaymentStatus { get; set; } = "Unpaid";
+        public string PaymentStatus { get; set; } = "Paid";
         public string PaymentMethod { get; set; } = string.Empty; // Cash, KHQR
         [Column(TypeName = "decimal(18,2)")]
         public decimal TotalAmount { get; set; }

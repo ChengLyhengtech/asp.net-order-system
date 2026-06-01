@@ -37,7 +37,11 @@ namespace aps.net_order_system.Commands.Create
                 Description = command.Description,
                 Price = command.Price,
                 IsAvailable = command.IsAvailable,
-                CategoryId = command.CategoryId
+                CategoryId = command.CategoryId,
+
+                DiscountPercentage = command.DiscountPercentage,
+                DiscountStartDate = command.DiscountStartDate,
+                DiscountEndDate = command.DiscountEndDate
             };
 
             _context.Products.Add(product);

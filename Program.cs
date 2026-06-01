@@ -123,6 +123,8 @@ builder.Services.AddScoped<UpdateUserHandler>();
 builder.Services.AddScoped<DeleteUserHandler>();
 
 builder.Services.AddScoped<GetProductHandler>();
+// Register your new handler in the DI container
+builder.Services.AddScoped<GetProductByIdHandler>();
 builder.Services.AddScoped<CreateProductCommand>();
 builder.Services.AddScoped<UpdateProductHandler>();
 builder.Services.AddScoped<DeleteProductHandler>();

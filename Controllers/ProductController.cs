@@ -14,6 +14,7 @@ namespace aps.net_order_system.Controllers
     public class ProductController : ControllerBase
     {
         private readonly GetProductHandler _getHandler;
+        private readonly GetProductByIdHandler _getByIdHandler;
         private readonly CreateProductCommand _createHandler;
         private readonly UpdateProductHandler _updateHandler;
         private readonly DeleteProductHandler _deleteHandler;
@@ -22,6 +23,7 @@ namespace aps.net_order_system.Controllers
 
         public ProductController(
             GetProductHandler getHandler,
+            GetProductByIdHandler getByIdHandler,
             CreateProductCommand createHandler,
             UpdateProductHandler updateHandler,
             DeleteProductHandler deleteHandler,
@@ -29,6 +31,7 @@ namespace aps.net_order_system.Controllers
             IMediator mediator)
         {
             _getHandler = getHandler;
+            _getByIdHandler = getByIdHandler;
             _createHandler = createHandler;
             _updateHandler = updateHandler;
             _deleteHandler = deleteHandler;
@@ -38,10 +41,23 @@ namespace aps.net_order_system.Controllers
 
         // GET: api/Product
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] GetProductQuery query)
         {
-            var products = await _getHandler.Handle(new GetProductQuery());
+            var products = await _getHandler.Handle(query);
             return Ok(products);
+        }
+
+        //Get product by id
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            // Use the specific ById query and handler
+            var product = await _getByIdHandler.HandleAsync(new GetProductByIdQuery { Id = id });
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return Ok(product);
         }
 
         // POST: api/Product
@@ -60,18 +76,17 @@ namespace aps.net_order_system.Controllers
             }
         }
 
-        // PUT: api/Product/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] UpdateProductCommand command)
+        public async Task<IActionResult> Update(int id, [FromForm] UpdateProductCommand command)
         {
-            command.Id = id;
+            command.Id = id; // Inject the ID from the URL route
 
             try
             {
                 var result = await _updateHandler.HandleAsync(command);
-                if (result == null)
-                    return NotFound();
-                return Ok(result); // ✅ return updated product with id
+                if (result == null) return NotFound();
+
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -92,13 +107,14 @@ namespace aps.net_order_system.Controllers
 
             return NoContent();
         }
+
         [HttpGet("top")]
-        public async Task<IActionResult> TopProduct([FromQuery] int limit = 5)
+        public async Task<IActionResult> TopProduct([FromQuery] int limit = 5, [FromQuery] string sortBy = "qty")
         {
             try
             {
-                var query = new GetTopProductQuery { Limit = limit };
-                var result = await _gettophandler.Handle(query); // Use the field here
+                var query = new GetTopProductQuery { Limit = limit, SortBy = sortBy };
+                var result = await _gettophandler.Handle(query);
                 return Ok(result);
             }
             catch (Exception ex)

@@ -2,10 +2,10 @@
 
 namespace aps.net_order_system.DTOs
 {
-    public class ProductCreateDto
+    public class ProductUpdateDto
     {
-        [Required(ErrorMessage = "Img Url is required")]
-        public IFormFile ProductImg { get; set; }
+        // Optional: Only provided if the user wants to upload a NEW image
+        public IFormFile? ProductImg { get; set; }
 
         [Required(ErrorMessage = "Product Name is required")]
         public string Name { get; set; } = string.Empty;
@@ -20,8 +20,6 @@ namespace aps.net_order_system.DTOs
         [Required]
         public int CategoryId { get; set; }
 
-        public decimal DiscountPercentage { get; set; }
-        public DateTime? DiscountStartDate { get; set; }
-        public DateTime? DiscountEndDate { get; set; }
+        // Add discount fields here if you want your update endpoint to handle them!
     }
 }
