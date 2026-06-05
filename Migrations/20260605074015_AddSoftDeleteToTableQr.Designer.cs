@@ -12,8 +12,8 @@ using aps.net_order_system.Data;
 namespace aps.net_order_system.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260605034035_InitialIdentitySetup")]
-    partial class InitialIdentitySetup
+    [Migration("20260605074015_AddSoftDeleteToTableQr")]
+    partial class AddSoftDeleteToTableQr
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -282,13 +282,15 @@ namespace aps.net_order_system.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TableId")
-                        .HasColumnType("int");
+                    b.Property<string>("TableId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<decimal>("TotalAmount")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("TableId");
 
                     b.ToTable("Orders");
                 });
@@ -339,6 +341,27 @@ namespace aps.net_order_system.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("aps.net_order_system.Models.TableQrCodeModel", b =>
+                {
+                    b.Property<string>("TableId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("EncryptedUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("QrCodeImageBase64")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TableId");
+
+                    b.ToTable("TableQrCodes");
                 });
 
             modelBuilder.Entity("aps.net_order_system.Models.TotalCountOderModel", b =>
@@ -503,6 +526,15 @@ namespace aps.net_order_system.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("aps.net_order_system.Models.OrderModel", b =>
+                {
+                    b.HasOne("aps.net_order_system.Models.TableQrCodeModel", "TableQrCode")
+                        .WithMany("Orders")
+                        .HasForeignKey("TableId");
+
+                    b.Navigation("TableQrCode");
+                });
+
             modelBuilder.Entity("aps.net_order_system.Models.ProductModel", b =>
                 {
                     b.HasOne("aps.net_order_system.Models.CategoriesModel", "Category")
@@ -517,6 +549,11 @@ namespace aps.net_order_system.Migrations
             modelBuilder.Entity("aps.net_order_system.Models.OrderModel", b =>
                 {
                     b.Navigation("OrderItems");
+                });
+
+            modelBuilder.Entity("aps.net_order_system.Models.TableQrCodeModel", b =>
+                {
+                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }
