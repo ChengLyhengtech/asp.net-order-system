@@ -166,13 +166,14 @@ app.UseStaticFiles(new StaticFileOptions
 
 app.UseCors("AllowFrontend");
 
-// 4. Middleware Pipeline
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// 4. Middleware Pipel
+app.UseSwagger();
 
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Order System API v1");
+    c.RoutePrefix = "swagger";
+});
 app.UseHttpsRedirection();
 app.UseAuthentication(); // <--- ADD THIS LINE HERE
 app.UseAuthorization();
