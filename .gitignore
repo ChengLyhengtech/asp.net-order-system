@@ -1,17 +1,6 @@
-﻿# User-specific files
-.vs/
-
-# Build results
-[Dd]ebug/
-[Rr]elease/
+.env
 bin/
 obj/
-
-# Ignore only development secrets
-appsettings.json
-appsettings.Development.json
-
-# User-specific project settings
+.vs/
 *.user
-*.userosscache
-*.sln.docstates
+*.suo
