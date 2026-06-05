@@ -235,7 +235,8 @@ namespace aps.net_order_system.Migrations
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     DiscountPercentage = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
                     DiscountStartDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DiscountEndDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    DiscountEndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDiscountOverrideActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

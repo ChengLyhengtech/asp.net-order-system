@@ -138,6 +138,8 @@ builder.Services.AddScoped<UpdateOrderStatusCommandHandler>();
 builder.Services.AddScoped<DeleteOrderCommandHandler>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<GetStaffHistoryHandler>();
+builder.Services.AddScoped<GetSalesAnalyticsHandler>();
+builder.Services.AddScoped<GetAdminOrderHistoryHandler>();
 // -----------------------
 
 builder.Services.AddScoped<TotalCountOrderHandler>();

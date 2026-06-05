@@ -14,7 +14,7 @@ namespace aps.net_order_system.Commands
 
     public class CreateOrderCommand
     {
-        public int TableId { get; set; }
+        public string? TableId { get; set; }
         public List<CreateOrderItemCommand> Items { get; set; } = new();
     }
 
