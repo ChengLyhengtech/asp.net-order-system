@@ -12,7 +12,7 @@ using aps.net_order_system.Data;
 namespace aps.net_order_system.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260601035140_InitialIdentitySetup")]
+    [Migration("20260605034035_InitialIdentitySetup")]
     partial class InitialIdentitySetup
     {
         /// <inheritdoc />
@@ -318,6 +318,9 @@ namespace aps.net_order_system.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsAvailable")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDiscountOverrideActive")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")

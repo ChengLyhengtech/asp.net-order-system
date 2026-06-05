@@ -147,5 +147,61 @@ namespace aps.net_order_system.Controllers
 
             return Ok(new { message = $"Product with ID {id} availability updated successfully." });
         }
+
+        [HttpPatch("{id}/apply-discount")]
+        // [Authorize(Roles = "Admin")] // Uncomment when ready
+        public async Task<IActionResult> ApplyDiscount(int id, [FromBody] ApplyDiscountDto dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            // Business validation: Start date must be before End date
+            if (dto.DiscountStartDate >= dto.DiscountEndDate)
+            {
+                return BadRequest(new { message = "The start date must be earlier than the end date." });
+            }
+
+            // Map DTO to the MediatR Command
+            var command = new ApplyDiscountCommand
+            {
+                Id = id,
+                DiscountPercentage = dto.DiscountPercentage,
+                DiscountStartDate = dto.DiscountStartDate,
+                DiscountEndDate = dto.DiscountEndDate
+            };
+
+            // Send through MediatR pipeline
+            var result = await _mediator.Send(command);
+
+            if (!result)
+            {
+                return NotFound(new { message = $"Product with ID {id} not found." });
+            }
+
+            return Ok(new { message = $"Discount applied successfully to product ID {id}." });
+        }
+
+        [HttpPatch("{id}/discount-toggle")]
+        public async Task<IActionResult> ToggleDiscountStatus(int id, [FromBody] UpdateDiscountStatusDto dto)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            var command = new ToggleDiscountStatusCommand
+            {
+                Id = id,
+                IsDiscountOverrideActive = dto.IsDiscountOverrideActive
+            };
+
+            var result = await _mediator.Send(command);
+
+            if (!result)
+            {
+                return NotFound(new { message = $"Product with ID {id} not found." });
+            }
+
+            return Ok(new { message = $"Product ID {id} discount override status updated successfully." });
+        }
     }
 }

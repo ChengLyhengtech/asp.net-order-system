@@ -19,6 +19,8 @@ namespace aps.net_order_system.Controllers
         private readonly UpdateOrderStatusCommandHandler _updateHandler;
         private readonly DeleteOrderCommandHandler _deleteHandler;
         private readonly TotalCountOrderHandler _totalCountOrder;
+        private readonly GetSalesAnalyticsHandler _analyticsHandler;
+        private readonly GetAdminOrderHistoryHandler _adminHistoryHandler;
         private readonly IMediator _mediator;
         private readonly GetStaffHistoryHandler _getStaffHistoryHandler;
 
@@ -27,17 +29,22 @@ namespace aps.net_order_system.Controllers
             GetOrderQueryHandler getByIdHandler,
             CreateOrderCommandHandler createHandler,
             UpdateOrderStatusCommandHandler updateHandler,
+            GetAdminOrderHistoryHandler getAdminHistoryHandler,
             DeleteOrderCommandHandler deleteHandler,
             TotalCountOrderHandler totalCountOrder,
+            GetSalesAnalyticsHandler analyticsHandler,
+
             IMediator mediator,
             GetStaffHistoryHandler getStaffHistoryHandler)
         {
             _getAllHandler = getAllHandler;
+            _adminHistoryHandler = getAdminHistoryHandler;
             _getByIdHandler = getByIdHandler;
             _createHandler = createHandler;
             _updateHandler = updateHandler;
             _deleteHandler = deleteHandler;
             _totalCountOrder = totalCountOrder;
+            _analyticsHandler = analyticsHandler;
             _mediator = mediator;
             _getStaffHistoryHandler = getStaffHistoryHandler;
         }
@@ -66,6 +73,13 @@ namespace aps.net_order_system.Controllers
         {
             var result = await _getByIdHandler.Handle(new GetOrderQuery(id));
             return result == null ? NotFound() : Ok(result);
+        }
+        [HttpGet("admin/history")]
+        // [Authorize(Roles = "Admin")] // 👈 Uncomment this when your Authentication/JWT is ready!
+        public async Task<ActionResult<IEnumerable<OrderDto>>> GetAdminHistory([FromQuery] GetAdminOrderHistoryQuery query)
+        {
+            var history = await _adminHistoryHandler.Handle(query);
+            return Ok(history);
         }
 
         [HttpPost]
@@ -126,6 +140,20 @@ namespace aps.net_order_system.Controllers
             // Using Mediator to send the query to the handler
             var result = await _mediator.Send(new GetOrdersByStatusQuery(status));
 
+            return Ok(result);
+        }
+
+        // GET: api/Orders/analytics?days=7
+        // GET: api/Orders/analytics?days=14
+        [HttpGet("analytics")]
+        public async Task<ActionResult<SalesAnalyticsDto>> GetSalesAnalytics([FromQuery] int days = 7)
+        {
+            if (days != 7 && days != 14)
+            {
+                return BadRequest("Analytics timeline parameter must be either 7 or 14 days.");
+            }
+
+            var result = await _analyticsHandler.Handle(new GetSalesAnalyticsQuery { Days = days });
             return Ok(result);
         }
     }

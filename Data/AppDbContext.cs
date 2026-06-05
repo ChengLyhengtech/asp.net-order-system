@@ -17,6 +17,7 @@ namespace aps.net_order_system.Data
         public DbSet<OrderModel> Orders { get; set; }
         public DbSet<TotalCountOderModel> TotalCountOrders { get; set; }
         public DbSet<PaymentModel> Payments { get; set; }
+        public DbSet<TableQrCodeModel> TableQrCodes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

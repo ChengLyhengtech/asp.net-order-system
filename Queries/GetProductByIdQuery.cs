@@ -34,7 +34,12 @@ namespace aps.net_order_system.Queries
                     CategoryName = p.Category.CategoryName,
                     DiscountPercentage = p.DiscountPercentage,
                     DiscountStartDate = p.DiscountStartDate,
-                    DiscountEndDate = p.DiscountEndDate
+                    DiscountEndDate = p.DiscountEndDate,
+                    IsDiscountOverrideActive = p.IsDiscountOverrideActive,
+
+                    // Pull calculated properties from the model
+                    DiscountStatusBadge = p.DiscountStatusBadge,
+                    PromoPrice = p.PromoPrice
                 })
                 .FirstOrDefaultAsync(); // Fetches just one item
         }
