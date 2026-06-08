@@ -1,0 +1,52 @@
+name: Deploy ASP.NET Order System to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore "aps.net order-system.csproj"
+
+      - name: Build
+        run: dotnet build "aps.net order-system.csproj" --configuration Release --no-restore
+
+      - name: Deploy on EC2
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_KEY }}
+          script: |
+            cd ${{ secrets.APP_DIR }}
+
+            git pull origin main
+
+            docker compose up -d --build
+
+            source .env
+
+            docker run --rm \
+              --network aspnet-order-system_default \
+              -v "$PWD:/src" \
+              -w /src \
+              -e ConnectionStrings__DefaultConnection="Server=db;Database=order-system;User Id=sa;Password=$SA_PASSWORD;TrustServerCertificate=True;" \
+              mcr.microsoft.com/dotnet/sdk:8.0 \
+              bash -c 'dotnet tool install --global dotnet-ef --version 8.* && export PATH="$PATH:/root/.dotnet/tools" && dotnet ef database update --project "aps.net order-system.csproj"'
+
+            docker restart order-api
+
+            docker image prune -f

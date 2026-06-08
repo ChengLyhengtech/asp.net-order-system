@@ -1,0 +1,32 @@
+services:
+  api:
+    build: .
+    container_name: order-api
+    restart: always
+    ports:
+      - "80:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_HTTP_PORTS: 8080
+      ConnectionStrings__DefaultConnection: "Server=db;Database=order-system;User Id=sa;Password=${SA_PASSWORD};TrustServerCertificate=True;"
+      JWT__Issuer: "OrderSystem"
+      JWT__Audience: "OrderSystem"
+      JWT__Key: "${JWT_KEY}"
+    volumes:
+      - uploads_data:/app/uploads
+    depends_on:
+      - db
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: order-sqlserver
+    restart: always
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "${SA_PASSWORD}"
+    volumes:
+      - sql_data:/var/opt/mssql
+
+volumes:
+  sql_data:
+  uploads_data:
