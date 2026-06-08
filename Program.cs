@@ -3,6 +3,7 @@ using aps.net_order_system.Commands.Create;
 using aps.net_order_system.Commands.Delete;
 using aps.net_order_system.Commands.Update;
 using aps.net_order_system.Data;
+using aps.net_order_system.Hubs;
 using aps.net_order_system.Interface;
 using aps.net_order_system.Models;
 using aps.net_order_system.Queries;
@@ -10,24 +11,24 @@ using aps.net_order_system.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using System.Text.Json;
-using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
-// --- ADD CORS POLICY HERE ---
+// 2. Make sure your CORS policy allows SignalR (It needs AllowCredentials)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.AllowAnyHeader()
+        policy.WithOrigins("http://localhost:5173") // Replace with your exact React URL
+              .AllowAnyHeader()
               .AllowAnyMethod()
-              .SetIsOriginAllowed(origin => true) // Allow any origin
-              .AllowCredentials();
+              .AllowCredentials(); // CRITICAL FOR SIGNALR WEBSOCKETS
     });
 });
 
@@ -83,7 +84,9 @@ builder.Services.AddIdentity<UserModel, IdentityRole>(options =>
 builder.Services.AddAuthentication(options => {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(options => {
+})
+.AddJwtBearer(options => {
+    // Inside Program.cs -> AddJwtBearer
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
@@ -91,7 +94,11 @@ builder.Services.AddAuthentication(options => {
         ValidateAudience = true,
         ValidAudience = builder.Configuration["JWT:Audience"],
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"])),
+
+        // REMOVE OR COMMENT OUT THESE TWO LINES if using ClaimTypes.Role:
+        // RoleClaimType = "role",     
+        // NameClaimType = "nameid"    
     };
 });
 
@@ -149,10 +156,15 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Progr
 // 3. Add Controllers and Swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+// Somewhere near your payment services or token services:
+builder.Services.AddHttpClient();
 builder.Services.AddSwaggerGen();
-
+// 1. Add this near your other builder.Services definitions
+builder.Services.AddSignalR();
 
 var app = builder.Build();
+// 3. Map the Hub endpoint down near app.MapControllers()
+app.MapHub<OrderHub>("/orderHub");
 
 app.UseStaticFiles(); // Enables files in wwwroot
 
@@ -179,16 +191,53 @@ app.UseAuthorization();
 app.MapControllers();
 
 
-//Before you can register a user with a role, those roles must exist in your database.
+// Inside Program.cs - Replace your role creation block with this:
+
 using (var scope = app.Services.CreateScope())
 {
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-    string[] roles = { "Admin", "Staff", "User" };
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<UserModel>>();
 
+    // 1. Ensure Roles Exist
+    string[] roles = { "Admin", "Staff", "User" };
     foreach (var role in roles)
     {
         if (!await roleManager.RoleExistsAsync(role))
             await roleManager.CreateAsync(new IdentityRole(role));
+    }
+
+    // 2. Seed Initial System Admin
+    string adminUsername = "SuperAdmin";
+    string adminEmail = "SuperAdmin@system.com";
+
+    var adminUser = await userManager.FindByNameAsync(adminUsername);
+    if (adminUser == null)
+    {
+        var newAdmin = new UserModel
+        {
+            UserName = adminUsername,
+            Email = adminEmail,
+            FullName = "System Administrator",
+            EmailConfirmed = true
+        };
+
+        // Set your highly secure initial password here
+        var createAdminResult = await userManager.CreateAsync(newAdmin, "Admin@123");
+
+        if (createAdminResult.Succeeded)
+        {
+            // Assign the Admin role
+            await userManager.AddToRoleAsync(newAdmin, "Admin");
+            Console.WriteLine("--> Master Admin Account seeded successfully.");
+        }
+        else
+        {
+            Console.WriteLine("--> Failed to seed Admin account:");
+            foreach (var error in createAdminResult.Errors)
+            {
+                Console.WriteLine($"   Error: {error.Description}");
+            }
+        }
     }
 }
 

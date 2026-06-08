@@ -23,5 +23,6 @@ namespace aps.net_order_system.Models
         // Navigation Properties
         public virtual OrderModel? Order { get; set; }
         public virtual ProductModel? Product { get; set; }
+        public string ProductName { get; internal set; }
     }
 }

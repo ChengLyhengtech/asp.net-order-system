@@ -7,6 +7,7 @@ namespace aps.net_order_system.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(Roles = "Admin")] // <-- LOCKS DOWN THE ENTIRE CONTROLLER TO ADMINS ONLY
     public class TableQrController : ControllerBase
     {
         private readonly ITableQrService _tableQrService;

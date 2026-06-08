@@ -46,7 +46,7 @@ namespace aps.net_order_system.Services
             // 2. Encryption and Token generation
             string encryptedTableId = _protector.Protect(tableId);
             string encodedToken = Uri.EscapeDataString(encryptedTableId);
-            string orderUrl = $"http://localhost:5173/TableQr/{encodedToken}";
+            string orderUrl = $"http://localhost:5173/TableQr/{tableId}";
 
             // 3. Generate QR code
             using (QRCodeGenerator qrCodeGenerator = new QRCodeGenerator())

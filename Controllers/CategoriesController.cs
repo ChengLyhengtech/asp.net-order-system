@@ -1,15 +1,17 @@
-﻿using aps.net_order_system.DTOs;
-using aps.net_order_system.Queries;
-using aps.net_order_system.Commands.Create; // Ensure you import the namespace for your command
-using Microsoft.AspNetCore.Mvc;
-using aps.net_order_system.Commands.Update;
+﻿using aps.net_order_system.Commands.Create; // Ensure you import the namespace for your command
 using aps.net_order_system.Commands.Delete;
+using aps.net_order_system.Commands.Update;
+using aps.net_order_system.DTOs;
+using aps.net_order_system.Queries;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 
 namespace aps.net_order_system.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(Roles = "Admin")] // <-- LOCKS DOWN THE ENTIRE CONTROLLER TO ADMINS ONLY
     public class CategoriesController : ControllerBase
     {
         private readonly GetCategoriesHandler _getHandler;
