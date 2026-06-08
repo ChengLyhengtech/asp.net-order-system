@@ -7,7 +7,7 @@ namespace aps.net_order_system.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(Roles = "Admin")] // <-- LOCKS DOWN THE ENTIRE CONTROLLER TO ADMINS ONLY
+  
     public class TableQrController : ControllerBase
     {
         private readonly ITableQrService _tableQrService;
@@ -15,7 +15,7 @@ namespace aps.net_order_system.Controllers
         {
             _tableQrService = tableQrService;
         }
-
+        [Authorize(Roles = "Admin")] // <-- LOCKS DOWN THE ENTIRE CONTROLLER TO ADMINS ONLY
         // POST/GET: api/TableQr/generate/{tableId}
         [HttpGet("generate/{tableId}")]
         public async Task<ActionResult<GenerateQrResponseDto>> GenerateQrForTable(string tableId)
@@ -55,6 +55,7 @@ namespace aps.net_order_system.Controllers
             }
             return Ok(result);
         }
+        [Authorize(Roles = "Admin")] // <-- LOCKS DOWN THE ENTIRE CONTROLLER TO ADMINS ONLY
 
         // DELETE: api/TableQr/{tableId}
         [HttpDelete("{tableId}")]
