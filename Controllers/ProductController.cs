@@ -59,7 +59,7 @@ namespace aps.net_order_system.Controllers
             }
             return Ok(product);
         }
-
+   
         // POST: api/Product
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] ProductCreateDto command)
@@ -75,6 +75,7 @@ namespace aps.net_order_system.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [Authorize(Roles = "Admin")] // <-- LOCKS DOWN THE ENTIRE CONTROLLER TO ADMINS ONLY
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromForm] UpdateProductCommand command)
@@ -93,6 +94,7 @@ namespace aps.net_order_system.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+        [Authorize(Roles = "Admin")] // <-- LOCKS DOWN THE ENTIRE CONTROLLER TO ADMINS ONLY
 
         // DELETE: api/Product/5
         [HttpDelete("{id}")]
