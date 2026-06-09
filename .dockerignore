@@ -1,6 +1,7 @@
-.env
 bin/
 obj/
 .vs/
+.git/
+.env
 *.user
 *.suo

@@ -1,15 +1,17 @@
-﻿using aps.net_order_system.DTOs;
-using aps.net_order_system.Queries;
-using aps.net_order_system.Commands.Create; // Ensure you import the namespace for your command
-using Microsoft.AspNetCore.Mvc;
-using aps.net_order_system.Commands.Update;
+﻿using aps.net_order_system.Commands.Create; // Ensure you import the namespace for your command
 using aps.net_order_system.Commands.Delete;
+using aps.net_order_system.Commands.Update;
+using aps.net_order_system.DTOs;
+using aps.net_order_system.Queries;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 
 namespace aps.net_order_system.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+ 
     public class CategoriesController : ControllerBase
     {
         private readonly GetCategoriesHandler _getHandler;
@@ -40,12 +42,16 @@ namespace aps.net_order_system.Controllers
             return Ok(categories);
         }
 
+        [Authorize(Roles = "Admin")] // <-- LOCKS DOWN THE ENTIRE CONTROLLER TO ADMINS ONLY
+
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CategoryCreateDto command) // 3. Corrected to [FromBody]
         {
             var result = await _createHandler.Handle(command);
             return Ok(result);
         }
+
+        [Authorize(Roles = "Admin")] // <-- LOCKS DOWN THE ENTIRE CONTROLLER TO ADMINS ONLY
 
         [HttpPut("{id}")] // 4. Added {id} to the route
         public async Task<IActionResult> Update(int id, [FromBody] CategoriesDto dto)
@@ -62,6 +68,8 @@ namespace aps.net_order_system.Controllers
 
             return result ? Ok("Updated Successfully") : NotFound();
         }
+
+        [Authorize(Roles = "Admin")] // <-- LOCKS DOWN THE ENTIRE CONTROLLER TO ADMINS ONLY
 
         [HttpDelete("{id}")] 
         public async Task<IActionResult> Delete(int id)

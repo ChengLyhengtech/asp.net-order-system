@@ -1,5 +1,6 @@
 ﻿using aps.net_order_system.Interface;
 using aps.net_order_system.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -24,38 +25,40 @@ namespace aps.net_order_system.Services
                 _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JWT:Key"]));
             }
 
-            public async Task<string> CreateToken(UserModel user)
+        public async Task<string> CreateToken(UserModel user)
+        {
+            // 1. Define User Claims (Using standard JWT mapping keys)
+            var claims = new List<Claim>
+    {
+        new Claim(JwtRegisteredClaimNames.Email, user.Email),
+        new Claim(JwtRegisteredClaimNames.GivenName, user.UserName),
+        new Claim(JwtRegisteredClaimNames.NameId, user.Id)
+    };
+
+            // 2. Add Roles using the literal short string "role"
+            var roles = await _userManager.GetRolesAsync(user);
+            foreach (var role in roles)
             {
-                // 1. Define User Claims
-                var claims = new List<Claim>
+                claims.Add(new Claim("role", role)); // <-- FIX HERE: Match your Program.cs RoleClaimType
+            }
+
+            // 3. Create Signing Credentials
+            var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha256Signature);
+
+            // 4. Create Token Descriptor
+            var tokenDescriptor = new SecurityTokenDescriptor
             {
-                new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                new Claim(JwtRegisteredClaimNames.GivenName, user.UserName),
-                new Claim(JwtRegisteredClaimNames.NameId, user.Id) // Unique User ID
+                Subject = new ClaimsIdentity(claims, JwtBearerDefaults.AuthenticationScheme),
+                Expires = DateTime.UtcNow.AddDays(7), // Best practice: Use UtcNow
+                SigningCredentials = creds,
+                Issuer = _config["JWT:Issuer"],
+                Audience = _config["JWT:Audience"]
             };
 
-                // 2. Add Roles to Claims (This is what triggers your [Authorize(Roles="...")] guards)
-                var roles = await _userManager.GetRolesAsync(user);
-                claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var token = tokenHandler.CreateToken(tokenDescriptor);
 
-                // 3. Create Signing Credentials
-                var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha256Signature);
-
-                // 4. Create Token Descriptor
-                var tokenDescriptor = new SecurityTokenDescriptor
-                {
-                    Subject = new ClaimsIdentity(claims),
-                    Expires = DateTime.Now.AddDays(7), // Token lasts for a week
-                    SigningCredentials = creds,
-                    Issuer = _config["JWT:Issuer"],
-                    Audience = _config["JWT:Audience"]
-                };
-
-                // 5. Generate and Return Token
-                var tokenHandler = new JwtSecurityTokenHandler();
-                var token = tokenHandler.CreateToken(tokenDescriptor);
-
-                return tokenHandler.WriteToken(token);
-            }
+            return tokenHandler.WriteToken(token);
         }
+    }
 }
